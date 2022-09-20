@@ -1,0 +1,26 @@
+import prettytable
+
+amo = 500
+amu = 500
+smu = 500
+
+from prettytable import PrettyTable
+
+var = PrettyTable()
+var.add_column("Resources", ["Cappucino", "Latte", "Expresso"])
+var.add_column("Price per 25ml", ["$40", "$30", "$35"])
+var.add_column("Quantity Available", [amo, amu, smu])
+
+print(var)
+print("Welcome, it takes 75ml to fill a cee_coffee cup")
+
+cup = 75
+price = 0
+
+order = input("Select your order:\n")
+if order == "cappacino":
+	want = int(input("How many ml do you want dispensed: "))
+	cup -= want
+	price = round(((want / 25) * 40), 2)
+	amo -= want
+	print(f"{cup} is left for your cup to be full.\nYour current price is: ${price}")

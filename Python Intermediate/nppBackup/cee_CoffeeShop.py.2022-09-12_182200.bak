@@ -1,0 +1,43 @@
+say = input("What would you like to order?\ncappucino , latte or expresso: ")
+
+
+def process():
+    said = False
+    Quantity_C = 500
+    while not said:
+        if say == "cappucino":
+            want = int(input(f"What ml do you want to order: "))
+            Quantity_C -= want
+            print(f"The remaining quantity of cappucino is: {Quantity_C} ml")
+            if want > Quantity_C:
+                print("Insufficient quantity")
+                said = True
+            elif want <= Quantity_C:
+                print("Your order is being dispensed.")
+                ask = input("Do you want to make any other order?yes or no: ")
+                while ask == "yes":
+                    says = input("What would you like to order?\ncappucino , latte or expresso: ")
+                    confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+                    if confirm == "back":
+                        print("\n")
+                        say = input("What would you like to order?\ncappucino , latte or expresso: ")
+                        confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+                    elif confirm == "dispense":
+                        process()
+                else:
+                    said = True
+
+
+def plead():
+    says = input("What would you like to order?\ncappucino , latte or expresso: ")
+    confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+    if confirm == "back":
+        print("\n")
+        says = input("What would you like to order?\ncappucino , latte or expresso: ")
+        confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+    elif confirm == "dispense":
+        process()
+
+
+plead()
+

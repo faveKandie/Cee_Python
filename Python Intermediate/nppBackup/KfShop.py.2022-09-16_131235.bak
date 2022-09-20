@@ -1,0 +1,5 @@
+import cee_CoffeeShop
+
+from cee_CoffeeShop import resources
+var = resources()
+print(var)

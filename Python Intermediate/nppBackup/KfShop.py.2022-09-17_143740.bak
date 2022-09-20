@@ -1,0 +1,18 @@
+bask = False
+while not bask:
+	other = input("Is there any available buyer? Yes or no: ").lower()
+	if other == "no":
+		bask = True
+	elif other == "yes":
+		print("\n")
+		import cee_disp
+		realorder = input("Chose a category from the display screen: ").lower()
+		if realorder == "all drinks":
+			from ceeMenu 
+			import newmenu
+		if realorder == "zero sugar":
+			import cee_dietmenu
+			import dietprocess
+		elif realorder == "coffee":
+			import ceecofmenu
+			import ceecofprocess

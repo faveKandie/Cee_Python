@@ -1,0 +1,17 @@
+student_scores = {
+"ben": "89", 
+"ola": "95", 
+"manny": "60",}
+
+student_grades = {
+"ben": "beyond expectations", 
+"ola": "outstanding", 
+"manny": "Try better"}
+
+for key in student_scores:
+    print(key)
+    print(student_scores[key])
+    for thing in student_grandes:
+        print(student_grades[thing])
+        
+

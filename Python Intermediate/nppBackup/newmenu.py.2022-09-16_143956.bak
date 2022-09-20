@@ -1,0 +1,78 @@
+pimu = ormu = stmu = pemu = lemu = grmu = nomu = 500
+
+def act():
+	import prettytable
+	from prettytable import PrettyTable
+
+	var = PrettyTable()
+	var.add_column("Resources", ["Fanta", "Coke", "Sprite"])
+	var.add_column("Price per 25ml", ["$15", "$20", "$10"])
+
+	print(var)
+	print("Welcome, it takes 75ml to fill a cee_coffee cup")
+
+	global pimu
+	global ormu
+	global stmu
+	global pemu
+	global lemu
+	global grmu
+	global nomu
+
+	def process(rep):
+		cup = 75
+		price = 0
+		want = int(input("How many ml do you want dispensed: "))
+		cup -= want
+		price += round(((want / 25) * 15), 2)
+		rep -= want
+
+	order = input("Select your order:\n")
+	if order == "fanta":
+		base = PrettyTable()
+		base.add_column("Fanta Flavours", ["pineapple", "orange", "strawberry", "peach", "lemon", "grape", "no sugar"])
+		base.add_column("Initial Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+		print(base)
+		pick = input("Pick a flavour:\n")
+		if pick == "pineapple":
+			want = int(input("How many ml do you want dispensed: "))
+			cup -= want
+			price = round(((want / 25) * 15), 2)
+			pimu -= want
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "orange":
+			want = int(input("How many ml do you want dispensed: "))
+			cup -= want
+			price = round(((want / 25) * 15), 2)
+			ormu -= want
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "strawberry":
+			want = int(input("How many ml do you want dispensed: "))
+			cup -= want
+			price = round(((want / 25) * 15), 2)
+			stmu -= want
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "peach":
+			want = int(input("How many ml do you want dispensed: "))
+			cup -= want
+			price = round(((want / 25) * 15), 2)
+			pemu -= want
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "lemon":
+			want = int(input("How many ml do you want dispensed: "))
+			cup -= want
+			price = round(((want / 25) * 15), 2)
+			lemu -= want
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "grape":
+			process(grmu)
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		print(f"{cup} is left for your cup to be full.\nYour current price is: ${price}")
+
+act()

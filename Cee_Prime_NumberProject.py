@@ -1,0 +1,16 @@
+number = int(input("Please input a number you'll like to check if it's prime or not: "))
+
+def func_name(number):
+    for n in range(2, number):
+      if number % n == 0:
+        print("It's not a prime number")
+        break
+    for n in range(2, number):
+      if number % n > 0:
+        print("It's a prime number!")
+      break
+      
+func_name(number)
+
+if number == 2:
+  print("It's a prime number")

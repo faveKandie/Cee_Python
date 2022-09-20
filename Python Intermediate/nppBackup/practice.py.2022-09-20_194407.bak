@@ -1,0 +1,5 @@
+for i in range(2, 10, 2):
+	print(i)
+a = [1, 2, 3, 4]
+a[2] = 10
+print(a)

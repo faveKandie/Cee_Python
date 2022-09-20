@@ -1,0 +1,44 @@
+def process():
+	import prettytable
+	from prettytable import PrettyTable
+	display = PrettyTable()
+	display.add_column("All Drinks", [])
+	display.add_column("Zero Sugar", [])
+	display.add_column("Coffee", [])
+	
+	print(display)
+	realorder = input("Chose a category from the display screen: ").lower()
+	if realorder == "all drinks":
+		import ceeMenu
+		import newmenu
+	elif realorder == "zero sugar":
+		import cee_dietmenu
+		import dietprocess
+	
+	def rule():
+		print(display)
+		realorder = input("Chose a category from the display screen: ").lower()
+		if realorder == "all drinks":
+			from ceeMenu import menu
+			radio = menu()
+			print(radio)
+			from newmenu import act
+			sat = act()
+			print(sat)
+		elif realorder == "zero sugar":
+			from cee_dietmenu import menus
+			fat = menus()
+			print(fat)
+			from dietprocess import unik
+			slim = unik()
+			print(slim)
+	
+	bask = False
+	while not bask:
+		true = input("Are there any other buyers? Yes or no: ").lower()
+		if true == "yes":
+			rule()
+		elif true == "no":
+			bask = True
+
+process()

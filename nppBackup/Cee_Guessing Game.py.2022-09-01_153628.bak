@@ -1,0 +1,6 @@
+import random
+
+varname = []
+
+for varname in range(1, 101):
+    var += varname

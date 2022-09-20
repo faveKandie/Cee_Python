@@ -1,0 +1,11 @@
+height = int(input("What is the height of the wall?: m "))
+width = int(input("What is the width of the wall?: m "))
+coverage = 5
+cans = round((height * width) / coverage)
+
+def func_name(height, width, coverage, cans):
+  print(f"Given a wall of {height}m height and {width}m width.")
+  print(f"Remember, 1 can of paint can cover {coverage} square meters")
+  print(f"You'll need {cans} can of paint")
+  
+func_name(cans)

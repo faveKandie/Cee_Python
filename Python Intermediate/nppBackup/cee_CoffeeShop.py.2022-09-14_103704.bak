@@ -1,0 +1,103 @@
+def reduc(rate, way):
+    amo = 500
+    amu = 500
+    smu = 500
+    das = False
+    while not das:
+        if rate == "cappucino":
+            amo -= way
+            print(amo)
+            das = True
+
+
+
+
+def fact():
+    resources = {"Cappucino": "$40 for each 25ml",
+    "Latte": "$30 for each 25ml",
+    "Expresso": "$35 for each 25ml",
+    "milk": "$10 for each use"}
+
+    for n in resources:
+        print(f"{n} : {resources[n]}")
+    print("A cup is 75ml full")
+
+    cup = 75
+    price = 0
+    print("\n")
+    say = input("What would you like to order?\ncappucino , latte or expresso: ")
+
+    confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+    bit = False
+    while not bit:
+        if confirm == "back":
+            print("\n")
+            say = input("What would you like to order?\ncappucino , latte or expresso: ")
+            confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+        elif confirm == "dispense":
+            bit = True
+
+    want = int(input("How many ml do you want to order?: "))
+    cup -= want
+
+    if say == "cappucino":
+        cap = want
+        reduc(say, want)
+        price = round(((want / 25) * 40), 2)
+        print("\n")
+        print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+    elif say == "latte":
+        price = round(((want / 25) * 30), 2)
+        print("\n")
+        print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+    elif say == "expresso":
+        price = round(((want / 25) * 35), 2)
+        print("\n")
+        print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+
+    rate = False
+    while not rate:
+        if cup > 0:
+            print("\n")
+            add = input("Include another order: ")
+            if add == "cappucino":
+                print("\n")
+                want = int(input("How many ml do you want to order?: "))
+                cup -= want
+                reduc(say, want)
+                price += round(((want / 25) * 40), 2)
+                print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+            elif add == "latte":
+                want = int(input("How many ml do you want to order?: "))
+                cup -= want
+                price += round(((want / 25) * 30), 2)
+                print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+            elif add == "expresso":
+                want = int(input("How many ml do you want to order?: "))
+                cup -= want
+                price += round(((want / 25) * 35), 2)
+                print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+            else:
+                price += 0
+                print(f"This order doesn't exist. Your order is terminated and your charge is ${price}")
+                rate = True
+        elif cup <= 0:
+            price += 0
+            total = round((price), 2)
+            rate = True
+            ask = input("Do you want to add milk? yes or no: ")
+            if ask == "yes":
+                total += 10
+                print(f"Your order is ready.\nYour total cost is now ${total}")
+            elif ask == "no":
+                print(f"Your order is ready.\nYour total cost is now ${total}")
+            
+fact()
+
+finished = False
+while not finished:
+    other = input("Are there any other buyers? yes or no: ")
+    if other == "no":
+        finished = True 
+    elif other == "yes":
+        fact()

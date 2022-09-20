@@ -1,0 +1,6 @@
+import random
+
+varname = []
+
+for var in range(1, 101):
+    print(var)

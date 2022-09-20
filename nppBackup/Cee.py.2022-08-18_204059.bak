@@ -1,0 +1,9 @@
+
+
+def greet(parname, location):
+  print("{parname}, Welcome to Cee Programming World")
+  print("I hope you are doing fine")
+  print("It's nice having you here")
+  print("How is it like in your {location}")
+  
+greet("ceeamoby", "Asaba")

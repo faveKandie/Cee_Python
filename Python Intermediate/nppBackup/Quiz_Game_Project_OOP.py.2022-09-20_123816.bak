@@ -1,0 +1,5 @@
+import QuizModule
+From QuizModule import cee
+
+objname = cee()
+print(objname.seat)

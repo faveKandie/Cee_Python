@@ -1,0 +1,8 @@
+print("heyyy!")
+import prettytable
+from prettytable import PrettyTable
+table = PrettyTable()
+table.add_column(" ", [" ", " ", " "])
+table.add_column("Pokeman Name\t\tType", ["Pikachu\t\tElectric", "Squirtle\t\tWater", "Charmander\t\tFire"])
+print(table)
+print(table.align)

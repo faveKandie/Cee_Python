@@ -1,0 +1,10 @@
+parname = input("What's yor name: ")
+location = input("Where do you stay?: \n")
+
+def greet(parname, location):
+  print(f"{parname}, Welcome to Cee Programming World")
+  print("I hope you are doing fine")
+  print("It's nice having you here")
+  print(f"How is it like in your {location}")
+  
+greet(parname, location)

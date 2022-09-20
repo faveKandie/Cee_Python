@@ -1,0 +1,20 @@
+import random
+                   
+cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'Q', 'J']
+
+random.shuffle(cards)
+print(cards)
+
+sum = 0
+
+if sum < 21:
+    card = int(input(f"Please draw a card from 13 card: "))
+
+    for rand in cards:
+        v = int(cards[card])
+        sum += v
+    print(f"You drew {v}")
+print(sum)
+
+shecard = random.choice(cards)
+print(f"The computers first card is {shecard}")

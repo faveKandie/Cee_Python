@@ -1,0 +1,127 @@
+dimu = rimu = simu = wamu = 500
+
+def unik():
+	import prettytable
+	from prettytable import PrettyTable
+	print("Welcome, it takes 75ml to fill a cee_soda cup")
+	
+	global dimu
+	global rimu
+	global simu
+	global wamu
+	cup = 75
+	price = 0
+	
+	order = input("Select your order: \n")
+	base = PrettyTable()
+	base.add_column("s/n", ["1", "2", "3", "4"])
+	base.add_column("Diet Drinks", ["Fanta", "Coke", "Sprite", "water"])
+	base.add_column("Quantity Available", [dimu, rimu, simu, wamu])
+	print(f"\n{base}")
+	if order == "fanta":
+		want = int(input("How many ml of diet {order} do you want?: "))
+		cup -= want
+		price = round(((want / 25) * 11), 2)
+		dimu -= want
+	elif order == "coke":
+		want = int(input("How many ml of diet {order} do you want?: "))
+		cup -= want
+		price = round(((want / 25) * 16), 2)
+		rimu -= want
+	elif order == "sprite":
+		want = int(input("How many ml of diet {order} do you want?: "))
+		cup -= want
+		price = round(((want / 25) * 6), 2)
+		simu -= want
+	elif order == "water":
+		want = int(input("How many ml of diet {order} do you want?: "))
+		cup -= want
+		price = round(((want / 25) * 0), 2)
+		wamu -= want
+		
+	rate = False
+	while not rate:
+		print(f"{cup}ml is left for your cee_soda cup to be full.\nYour current price is: ${price}")
+		if cup > 0:
+			print("\n")
+			asks = input("Do you want to include another order to fill your cup? Yes of No: ").lower()
+			if asks == "yes":
+				case = PrettyTable()
+				case.add_column("s/n", ["1", "2", "3", "4"])
+				case.add_column("Diet Drinks", ["Fanta", "Coke", "Sprite", "water"])
+				print(f"\n{case}")
+				orderr = input("Select another order: ").lower()
+				if orderr == "fanta":
+					want = int(input("How many ml of diet fanta do you want dispensed: "))
+					cup -= want
+					dimu -= want
+					if dimu > 0 and cup >= 0:
+						price += round(((want / 25) * 11), 2)
+						case.add_column("Current Quantity Available", [dimu, rimu, simu, wamu])
+						print(f"\n{case}")
+					else:
+						dimu += want
+						print("\nIt's either your cup is full or the machine is empty")
+						print(f"Your current charge is $ {price}")
+						print("order terminated")
+				elif orderr == "coke":
+					want = int(input("How many ml of diet fanta do you want dispensed: "))
+					cup -= want
+					rimu -= want
+					if rimu > 0 and cup >= 0:
+						price += round(((want / 25) * 16), 2)
+						case.add_column("Current Quantity Available", [dimu, rimu, simu, wamu])
+						print(f"\n{case}")
+					else:
+						rimu += want
+						print("\nIt's either your cup is full or the machine is empty")
+						print(f"Your current charge is $ {price}")
+						print("order terminated")
+				elif orderr == "sprite":
+					want = int(input("How many ml of diet sprite do you want dispensed: "))
+					cup -= want
+					simu -= want
+					if simu > 0 and cup >= 0:
+						price += round(((want / 25) * 6), 2)
+						case.add_column("Current Quantity Available", [dimu, rimu, simu, wamu])
+						print(f"\n{case}")
+					else:
+						simu += want
+						print("\nIt's either your cup is full or the machine is empty")
+						print(f"Your current charge is $ {price}")
+						print("order terminated")
+				elif orderr == "water":
+					want = int(input("How many ml of water do you want dispensed: "))
+					cup -= want
+					wamu -= want
+					if wamu > 0 and cup >= 0:
+						price += round(((want / 25) * 0), 2)
+						case.add_column("Current Quantity Available", [dimu, rimu, simu, wamu])
+						print(f"\n{case}")
+					else:
+						wamu += want
+						print("\nIt's either your cup is full or the machine is empty")
+						print(f"Your current charge is $ {price}")
+						print("order terminated")
+			elif asks == "no":
+				ask = input("\nDo you want to add ice? yes or no: ").lower()
+				if ask == "yes":
+					price += 10
+					total = round(price, 2)
+					print(f"Your order is ready.\nYour total cost is now ${total}")
+					rate =  True
+				elif ask == "no":
+					print(f"Your order is ready.\nYour total cost is now ${price}")
+					rate = True
+		elif cup == 0:
+			ask = input("\nDo you want to add ice? yes or no: ").lower()
+			if ask == "yes":
+				price += 10
+				total = round(price, 2)
+				print(f"Your order is ready.\nYour total cost is now ${total}")
+				rate =  True
+			elif ask == "no":
+				print(f"Your order is ready.\nYour total cost is now ${price}")
+				rate = True
+
+unik()

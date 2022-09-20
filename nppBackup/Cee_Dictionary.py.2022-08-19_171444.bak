@@ -1,0 +1,15 @@
+student_scores = {
+"ben": "89", 
+"ola": "95", 
+"manny": "60",}
+
+student_grades = {
+"ben": "beyond expectations", 
+"ola": "outstanding", 
+"manny": "Try better"}
+
+for key in student_scores:
+    print(f"{key} : {student_scores[key]}")
+    print(f"{student_grades[key]}\n")
+
+

@@ -1,0 +1,5 @@
+import random
+
+for var in range(1, 101):
+    varname = random.choice(var)
+print(varname)

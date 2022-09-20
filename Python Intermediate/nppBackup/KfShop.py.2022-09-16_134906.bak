@@ -1,0 +1,5 @@
+import newmenu
+
+from newmenu import var
+
+print(rad)

@@ -1,0 +1,46 @@
+def process():
+	import prettytable
+	from prettytable import PrettyTable
+	display = PrettyTable()
+	display.add_column("All Drinks", [])
+	display.add_column("Zero Sugar", [])
+	display.add_column("Coffee", [])
+	
+	print(display)
+	realorder = input("Chose a category from the display screen: ").lower()
+	if realorder == "all drinks":
+		import ceeMenu
+		import newmenu
+	elif realorder == "zero sugar":
+		import cee_dietmenu
+		import dietprocess
+	elif realorder == "coffee":
+		import ceecofmenu
+		import ceecofprocess
+
+	bask = False
+	while not bask:
+		true = input("Are there any other buyers? Yes or no: ").lower()
+		if true == "yes":
+			realorder = input("Chose a category from the display screen: ").lower()
+			if realorder == "all drinks":
+				import ceeMenu
+				radio = ceeMenu.menu()
+				print(radio)
+				import newmenu
+				sat = newmenu.act()
+				print(sat)
+			elif realorder == "zero sugar":
+				fat = cee_dietmenu.menus()
+				print(fat)
+				slim = dietprocess.unik()
+				print(slim)
+			elif realorder == "coffee":
+				kof = ceecofmenu.koffee()
+				print(kof)
+				sly = ceecofprocess.cof()
+				print(sly)
+		elif true == "no":
+			bask = True
+
+process()

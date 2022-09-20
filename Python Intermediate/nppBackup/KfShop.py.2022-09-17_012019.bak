@@ -1,0 +1,9 @@
+import newmenu
+
+bask = False
+while not bask:
+	true = input("Are there any other players? Yes or no: ").lower()
+	if true == "yes":
+		import newmenu
+	elif true == "no":
+		bask = True

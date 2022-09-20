@@ -1,0 +1,14 @@
+import random
+
+list = ['Neymar', 'Rihanna', 'Selena Gomez', 'Ronaldo', 'Messi']
+dict = { list[0]: "A russian footballer", list[1]: "A musician", list[2]: "Justin Bieber ex"}
+
+var = [", "]
+for randvar in dict:
+    v = (f"{randvar} : {dict[randvar]}")
+    var += v
+print(var)
+rad = " "
+for paser in var:
+    rad += paser
+print(rad)

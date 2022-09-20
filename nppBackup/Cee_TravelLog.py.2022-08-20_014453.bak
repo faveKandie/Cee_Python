@@ -1,0 +1,10 @@
+travel_log = [{"country": "france", "visits": 2, 
+"cities": ["paris", "lille", "dijon"]}, {"contry": "germany", "visits": 5, 
+"cities": ["berlin", "hamburg", "stuttgart"]}]
+
+def add_new_country(kountry, numb):
+  for position in range(0, 3):
+    travel_log[2] = {"country": kountry, "visits": numb, "cities": sity}
+
+add_new_country("russia", 2, ["moscow", "saint petersburg"])
+print(travel_log)

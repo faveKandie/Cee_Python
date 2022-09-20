@@ -1,0 +1,12 @@
+import turtle
+
+from turtle import Turtle, Screen
+timmy = Turtle()
+my_screen = Screen()
+
+timmy.shape("book")
+print(timmy)
+
+print("heyyyy")
+print(my_screen.canvheight)#here, the object is accessing the attribute 
+my_screen.exitonclick()

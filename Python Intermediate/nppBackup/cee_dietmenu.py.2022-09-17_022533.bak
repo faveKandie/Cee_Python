@@ -1,0 +1,2 @@
+import ceeMenu
+print(ceeMenu.menus)

@@ -1,0 +1,11 @@
+def menus():
+	resources = {"Cappucino": "$40 for each 25ml",
+	"Latte": "$30 for each 25ml",
+	"Expresso": "$35 for each 25ml",
+	"milk": "$10 for each use"}
+
+	for n in resources:
+	  print(f"{n} : {resources[n]}")
+	print("A cup is 75ml full")
+
+menus()

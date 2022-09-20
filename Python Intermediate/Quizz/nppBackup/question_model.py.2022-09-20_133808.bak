@@ -1,0 +1,13 @@
+class Question:
+	def __init__(self, ask, answer):
+		self.ask = ask
+		self.answer = answer
+		self.got = 0
+		self.fail = 0
+	
+	def proc(self, ans)
+		self.got += 1
+		ans.fail -= 1
+
+user_1 = Question("2 + 3 = 5", "True")
+print(user_1)

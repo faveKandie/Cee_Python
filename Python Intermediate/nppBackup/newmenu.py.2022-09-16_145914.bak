@@ -1,0 +1,61 @@
+pimu = ormu = stmu = pemu = lemu = grmu = nomu = 500
+
+def act():
+	import prettytable
+	from prettytable import PrettyTable
+
+	var = PrettyTable()
+	var.add_column("Resources", ["Fanta", "Coke", "Sprite"])
+	var.add_column("Price per 25ml", ["$15", "$20", "$10"])
+
+	print(var)
+	print("Welcome, it takes 75ml to fill a cee_coffee cup")
+
+	global pimu
+	global ormu
+	global stmu
+	global pemu
+	global lemu
+	global grmu
+	global nomu
+
+	order = input("Select your order:\n")
+	if order == "fanta":
+		base = PrettyTable()
+		def process(rep):
+			cup = 75
+			price = 0
+			want = int(input("How many ml do you want dispensed: "))
+			cup -= want
+			price += round(((want / 25) * 15), 2)
+			rep -= want
+		base.add_column("Fanta Flavours", ["pineapple", "orange", "strawberry", "peach", "lemon", "grape", "no sugar"])
+		print(base)
+		pick = input("Pick a flavour:\n")
+		if pick == "pineapple":
+			process(pimu)
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "orange":
+			process(ormu)
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "strawberry":
+			process(stmu)
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "peach":
+			process(pemu)
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "lemon":
+			process(lemu)
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+		elif pick == "grape":
+			process(grmu)
+			grmu -= want
+			base.add_column("Current Quantity Available", [pimu, ormu, stmu, pemu, lemu, grmu, nomu])
+			print(base)
+
+act()

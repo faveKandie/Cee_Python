@@ -1,0 +1,8 @@
+import random
+var = 1
+
+def numb ():
+    return var + 1
+
+var = numb()
+print(var)

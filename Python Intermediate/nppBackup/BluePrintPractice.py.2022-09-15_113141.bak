@@ -1,0 +1,6 @@
+import turtle
+
+from turtle import Turtle
+timmy = Turtle()
+print(timmy)
+print("heyyyy")

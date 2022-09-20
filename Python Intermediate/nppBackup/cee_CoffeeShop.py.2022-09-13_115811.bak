@@ -1,0 +1,51 @@
+resources = {"Cappucino": "$40 for each 25ml",
+"Latte": "$30 for each 25ml",
+"Expresso": "$35 for each 25ml",
+"milk": "$10 for each use"}
+
+print("A cup is 75ml full")
+for n in resources:
+    print(f"{n} : {resources[n]}")
+
+say = input("What would you like to order?\ncappucino , latte or expresso: ")
+confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+bit = False
+cup = 75
+price = 0
+
+while not bit:
+        if confirm == "back":
+            print("\n")
+            say = input("What would you like to order?\ncappucino , latte or expresso: ")
+            confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+        elif confirm == "dispense":
+            bit = True
+
+def process(want, price):
+    want = int(input("How many ml do you want to order?: "))
+    cup -= want
+    rate = False
+    while not rate:
+        if cup > 0:
+            add = input("Include another order: ")
+            if add == "cappucino":
+                want = int(input("How many ml do you want to order?: "))
+                cup -= want
+                price += round(((want / 25) * 40), 2)
+                print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+            elif add == "latte":
+                want = int(input("How many ml do you want to order?: "))
+                cup -= want
+                price += round(((want / 25) * 30), 2)
+                print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+            else:
+                want = int(input("How many ml do you want to order?: "))
+                cup -= want
+                price += round(((want / 25) * 35), 2)
+                print(f"The remaining quantity in your cup for it to be full is: {cup}ml and your current charge is ${price}")
+        elif cup <= 0:
+                print(f"\nYour cup is full. Your charge is ${price}")
+                rate = True
+
+if say == "cappucino":
+    process()

@@ -80,7 +80,10 @@ stages = ['''
 word = ["enabled", "hangman", "praised", "repeats", "ability", 
 "hooked", "enable", "better", "random", "survive", "conquer", 
 "apple", "breathe", "ceeamoby", "determined", "hired", "alien", 
-"stars", "always", "programmer", "love", "start", "please", "sorry"]
+"stars", "always", "programmer", "love", "start", "please", "sorry", 
+"brought", "normal", "greatness", "study", "nicely", "friendship", 
+"tough", "again", "london", "mathematics", "zealous", "patient", "content", 
+"last", "best", "graduating", "student", "university", "opportunity"]
 
 varname = len(word)
 lives = 6

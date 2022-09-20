@@ -1,0 +1,88 @@
+import random
+
+cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"]
+
+random.shuffle(cards)
+print(cards)
+
+total = 0
+sum = 0
+card = int(input(f"Please draw a card from cards numbered 0 - 12: "))
+
+for rand in cards:
+    v = (cards[card])
+    if cards[card] == "A":
+        v = int(input("Do you want A to represent 1 or 11?: "))
+        break
+    elif cards[card] == "K" or cards[card] == "J" or cards[card] == "Q":
+        v = 10
+sum += v
+print(f"You drew {v}")
+print(sum)
+shecard = (random.choice(cards))
+if shecard == "A":
+    shecard = int(input("Do you want A to represent 1 or 11?: "))
+elif shecard == "K" or shecard == "J" or shecard == "Q":
+    shecard = 10
+total += shecard
+print(f"The computers first card is {shecard}")
+print(total)
+
+
+finished = False
+while not finished:
+    if sum < 16:
+        ask = input("You have to draw again. input yes: ")
+    elif sum >= 16:
+        ask = input("Do you want to draw another card from the pack? yes or no: ")
+    if ask == "yes":
+        card = int(input(f"\nPlease draw another card from a pack of cards numbered 0 - 12: "))
+        for rand in cards:
+            v = (cards[card])
+            if cards[card] == "A":
+                v = int(input("Do you want A to represent 1 or 11?: "))
+                break
+            elif cards[card] == "K" or cards[card] == "J" or cards[card] == "Q":
+                v = 10
+        sum += v
+        print(f"You drew {v}")
+        print(sum)
+        shecard = (random.choice(cards))
+        if shecard == "A":
+            shecard = int(input("Do you want A to represent 1 or 11?: "))
+        elif shecard == "K" or shecard == "J" or shecard == "Q":
+            shecard = 10
+        total += shecard
+        print("The computers card has drawn")
+        if sum == 21 and total == 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("It's a draw! You both win.")
+            break
+        elif sum > 21 and total > 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You both busted. You both lose!")
+            break
+        elif sum == 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You win!")
+            break
+        elif sum > 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You Busted\nThe computer wins!")
+            break
+        elif total == 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("The computer wins!")
+            break
+        elif total > 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("The computer busted!\nYou win!")
+            break
+    if ask == "no":
+        finished = True
+        if sum > total:
+            print(f"The sum of the computer's final cards are {total}")
+            print("You win!")
+        else:
+            print(f"The sum of the computer's final cards are: {total}")
+            print("The computer wins!")

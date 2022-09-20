@@ -1,0 +1,27 @@
+def process():
+	print("\n")
+	import cee_disp
+	rate = False
+	while not rate:
+		realorder = input("Chose a category from the display screen: ").lower()
+		while realorder == "all drinks":
+			import ceeMenu
+			import newmenu
+			rate = True
+		if realorder == "zero sugar":
+			import cee_dietmenu
+			import dietprocess
+			rate = True
+		elif realorder == "coffee":
+			import ceecofmenu
+			import ceecofprocess
+			rate = True
+process()
+
+bask = False
+while not bask:
+	other = input("Are there any other buyers? Yes or no: ").lower()
+	if other == "no":
+		bask = True
+	elif other == "yes":
+		process()

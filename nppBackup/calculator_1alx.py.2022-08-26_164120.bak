@@ -1,0 +1,42 @@
+def add(c, d):
+    result = c + d
+    print(f"The sum of {c} and {d} is {result}")
+def div(c, d):
+    if c > d:
+        result = c / d
+        print(f"""
+        {c} is greater than {d}.
+        Therefore, {c} / {d} is {result}
+        """)
+    else:
+        result = d / c
+        print(f"""
+        {d} is greater than {c}.
+        Therefore, {d} / {c} is {result}
+        """)
+def mult(c, d):
+    result = c * d
+    print(f"The product of {c} and {d} is {result}")
+def subt(c, d):
+    result = c - d
+    print(f"The result you get from subtracting {c} from {d} is {result}")
+
+a = int(input("Please enter a number: "))
+b = int(input("Please enter another number: "))
+
+def opera():
+    user = int(input"(1 to add\n 2 to divide \n 3 to multiply \n4 to subtract"))
+    if user == 1:
+        var1 = add(a, b)
+        print(var1)
+    elif user == 2:
+        var2 = div(a, b)
+        print(var2)
+    elif user == 3:
+        var3 = mult(a, b)
+        print(var3)
+    else:
+        var4 = subt(a, b)
+        print(var4)
+
+

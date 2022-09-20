@@ -1,0 +1,9 @@
+def add(a,b):
+  result = a + b
+  
+  print(result)
+
+a = int(input(PLease enter a number: ))
+b = int(input(PLease enter another number: ))
+
+add(a, b)

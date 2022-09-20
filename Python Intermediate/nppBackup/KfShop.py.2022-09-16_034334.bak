@@ -1,0 +1,5 @@
+import menu
+from menu import resources
+var = resources()
+
+print(var)

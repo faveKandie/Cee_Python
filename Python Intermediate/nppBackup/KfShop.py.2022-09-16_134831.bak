@@ -1,0 +1,4 @@
+
+from newmenu import var
+rad = var
+print(rad)

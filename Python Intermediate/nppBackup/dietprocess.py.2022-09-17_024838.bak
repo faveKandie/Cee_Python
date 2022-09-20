@@ -1,0 +1,37 @@
+dimu = rimu = simu = wamu = 500
+
+def unik()
+	import prettytable
+	from prettytable import PrettyTable
+	print("Welcome, it takes 75ml to fill a cee_soda cup")
+	
+	global dimu
+	global rimu
+	global simu
+	global wamu
+	cup = 75
+	price = 0
+	
+	order = input("Select your order: \n")
+	if order == "fanta":
+		want = int(input("How many ml of diet {order} do you want?: "))
+		cup -= want
+		price = round(((want / 25) * 11), 2)
+		dimu -= want
+		base = PrettyTable()
+		base.add_column("s/n", ["1", "2", "3", "4"])
+		base.add_column("Diet Drinks", ["Fanta", "Coke", "Sprite", "water"])
+		base.add_column("Quantity Available", [dimu, rimu, simu, wamu])
+		print(base)
+	elif order == "coke":
+		want = int(input("How many ml of diet {order} do you want?: "))
+		cup -= want
+		price = round(((want / 25) * 11), 2)
+		dimu -= want
+		base = PrettyTable()
+		base.add_column("s/n", ["1", "2", "3", "4"])
+		base.add_column("Diet Drinks", ["Fanta", "Coke", "Sprite", "water"])
+		base.add_column("Quantity Available", [dimu, rimu, simu, wamu])
+		print(base)
+		
+unik()

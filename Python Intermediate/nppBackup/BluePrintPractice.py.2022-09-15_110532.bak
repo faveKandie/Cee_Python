@@ -1,0 +1,6 @@
+import turtle
+
+import random
+turtle.Turtle
+timmy = turtle.Turtle()
+print(timmy)

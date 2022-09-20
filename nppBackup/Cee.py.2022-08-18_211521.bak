@@ -1,0 +1,8 @@
+height = input("What is the height of the wall?: ")
+width = input("What is the width of the wall?: ")
+cans = round((Height * width) / 5)
+
+def func_name(cans):
+  print(f"You'll need {cans} can of paint")
+  
+func_name(cans)

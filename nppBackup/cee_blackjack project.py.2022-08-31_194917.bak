@@ -1,0 +1,58 @@
+import random
+
+cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'Q', 'J']
+
+random.shuffle(cards)
+print(cards)
+
+total = 0
+sum = 0
+card = int(input(f"Please draw a card from cards numbered 0 - 12: "))
+for rand in cards:
+    v = int(cards[card])
+    if v == "A":
+        v = int(input("D you want A to represent 1 or 11: "))
+sum += v
+print(f"You drew {v}")
+print(sum)
+shecard = int(random.choice(cards))
+total += shecard
+print(f"The computers first card is {shecard}")
+print(total)
+
+
+finished = False
+while not finished:
+    ask = input("Do you want to draw another card from the pack? yes or no: ")
+    if ask == "yes":
+        card = int(input(f"Please draw another card from a pack of cards numbered 0 - 12: "))
+        for rand in cards:
+            v = int(cards[card])
+        sum += v
+        print(f"You drew {v}")
+        print(sum)
+        shecard = int(random.choice(cards))
+        total += shecard
+        print("The computers card has drawn")
+        if sum == 21 and total == 21:
+            print("It's a draw! You both win.")
+        elif sum > 21 and total > 21:
+            print("You both busted. You both lose!")
+        elif sum == 21:
+            print("You win!")
+            break
+        elif sum > 21:
+            print("Bust\nThe computer wins!")
+            break
+        elif total == 21:
+            print("The computer wins!")
+            break
+        elif total > 21:
+            print("The computer busted!\nYou win!")
+            break
+    if ask == "no":
+        finished = True
+        if sum > total:
+            print("You win!")
+        else:
+            print("The computer wins!")

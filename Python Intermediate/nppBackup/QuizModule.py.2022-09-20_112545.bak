@@ -1,0 +1,6 @@
+class cee:
+	seat = 2
+
+	def funcname():
+		seat = 5
+print(cee)

@@ -1,0 +1,42 @@
+a = int(input("Please enter a number: "))
+
+def add(c, d):
+    result = c + d
+    c = result
+    print(f"The answer is {c}")
+def div(c, d):
+    result = round((c / d), 3)
+    c = result
+    print(f"The answer is {c}")
+def mult(c, d):
+    ans = 0
+    result = c * d
+    print(f"The product of {c} and {d} is {result}")
+def subt(c, d):
+    result = c - d
+    print(f"The result you get from subtracting {c} from {d} is {result}")
+
+def repeat():
+    b = int(input("Please enter another number: "))
+    user = input("Do you want to 'add', 'divide' 'multiply' 'subtract': ")
+    if user == "add":
+        add(a, b)
+    elif user == "divide":
+        div(a, b)
+    elif user == "multiply":
+        mult(a, b)
+    elif user == "subtract":
+        subt(a, b)
+    else:
+        print("You entered an invalid operation")
+
+repeat()
+
+quest = False
+while not quest:
+    ask = input("Do you want to perform anther operation: ")
+    if ask == "yes":
+        repeat()
+    if ask == "no":
+        quest = True
+        break

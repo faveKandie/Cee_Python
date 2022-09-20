@@ -1,0 +1,4 @@
+input1 = int(input("Enter a number: "))
+input2 = int(input("Enter a number: "))
+
+import add

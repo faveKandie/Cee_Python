@@ -1,0 +1,46 @@
+def add(c, d):
+    ans = 0
+    result = c + d
+    ans += result
+    print(f"The sum of {c} and {d} is {ans}")
+def div(c, d):
+    ans = 0
+    if c > d:
+        result = round((c / d), 3)
+        ans += result
+        print(f"{c} is greater than {d}.\nTherefore, {c} / {d} is {result}")
+    if d > c:
+        ans = input(f"{d} is greater thand {c}. Do you still mean {c} / {d}. yes or no: ")
+        if ans == "yes":
+            result = round((c / d), 3)
+            ans += result
+            print(f"Therefore, {c} / {d} is {result}")
+        else:
+            result = round((d / c), 3)
+            ans += result
+            print(f"Therefore, {d} / {c} is {result}")
+def mult(c, d):
+    ans = 0
+    result = c * d
+    print(f"The product of {c} and {d} is {result}")
+def subt(c, d):
+    result = c - d
+    print(f"The result you get from subtracting {c} from {d} is {result}")
+
+a = int(input("Please enter a number: "))
+b = int(input("Please enter another number: "))
+
+def opera():
+    user = input("Do you want to 'add', 'divide' 'multiply' 'subtract': ")
+    if user == "add":
+        add(a, b)
+    elif user == "divide":
+        div(a, b)
+    elif user == "multiply":
+        mult(a, b)
+    elif user == "subtract":
+        subt(a, b)
+    else:
+        print("You entered an invalid operation")
+
+opera()

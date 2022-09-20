@@ -1,0 +1,5 @@
+import cee_CoffeeShop
+
+from cee_CoffeeShop import fact
+var = fact()
+print(var)

@@ -1,0 +1,9 @@
+def add():
+  a = int(input("Please enter a number: "))
+  b = int(input("Please enter another number: "))
+  result = a + b
+  
+  print(f"The sum of {a} and {b} is {result}")
+
+
+add()

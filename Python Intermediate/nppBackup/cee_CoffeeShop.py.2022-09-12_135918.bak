@@ -1,0 +1,10 @@
+def order():
+    say = input("What would you like to order?\ncappucino , latte or expresso: ")
+
+order()
+confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order")
+
+if confirm == "dispense":
+    print("Your order is being dispensed. Press off when full.")
+else:
+    order()

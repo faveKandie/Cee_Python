@@ -1,0 +1,3 @@
+from ceeMenu import menus
+fake = menus()
+print(fake)

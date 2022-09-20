@@ -1,0 +1,110 @@
+import random
+
+cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"]
+print("Welcome to cee BlackJack Game!")
+ret = input("Do you want to read how to play this game? yes or no: ")
+if ret == "yes":
+    print(f"""
+In this game, there are 13 cards numbered 0 - 12.
+The cards are A which could be 1 or 11 depending on your choice.
+              2 - 10
+              and K, Q and J which gives a value of 10.
+You are to draw cards and each time you draw, the computer draws too and you only get to see his first card.
+If the sum of your drawn cards is less than 16, you must draw again- Enter yes to continue.
+Else you decide. Yes  to continue and no to stop.
+If you draw again and the sum of your drawn cards is greater than 21, you are busted and the computer wins.
+But if the sum of cards drawn by the computer is greater than 21, you win!
+The game begins now!\n
+""")
+else:
+    print("The game begins now!\n")
+
+random.shuffle(cards)
+
+total = 0
+sum = 0
+card = int(input(f"Please draw a card from cards numbered 0 - 12: "))
+
+for rand in cards:
+    v = (cards[card])
+    if cards[card] == "A":
+        v = int(input("Do you want A to represent 1 or 11?: "))
+        break
+    elif cards[card] == "K" or cards[card] == "J" or cards[card] == "Q":
+        v = 10
+sum += v
+print(f"You drew {v}")
+shecard = (random.choice(cards))
+if shecard == "A":
+    shecs = [1, 11]
+    random.shuffle(shecs)
+    shecard = shecs[0]
+elif shecard == "K" or shecard == "J" or shecard == "Q":
+    shecard = 10
+total += shecard
+print(f"The computers first card is {shecard}")
+
+finished = False
+while not finished:
+    random.shuffle(cards)
+
+    if sum < 16:
+        ask = input("You have to draw again. Input yes to continue: ")
+    elif sum >= 16:
+        ask = input("Do you want to draw another card from the pack? yes or no: ")
+    if ask == "yes":
+        card = int(input(f"\nPlease draw another card from a pack of cards numbered 0 - 12: "))
+        for rand in cards:
+            v = (cards[card])
+            if cards[card] == "A":
+                v = int(input("Do you want A to represent 1 or 11?: "))
+                break
+            elif cards[card] == "K" or cards[card] == "J" or cards[card] == "Q":
+                v = 10
+        sum += v
+        print(f"You drew {v}")
+        print(f"The sum of your drawn cards are {sum}")
+        shecard = (random.choice(cards))
+        if shecard == "A":
+            shecs = [1, 11]
+            random.shuffle(shecs)
+            shecard = shecs[0]
+        elif shecard == "K" or shecard == "J" or shecard == "Q":
+            shecard = 10
+        total += shecard
+        print(f"The computer has drawn. {total}")
+        if sum == 21 and total == 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("It's a draw! You both win.")
+            break
+        elif sum > 21 and total > 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You both busted. You both lose!")
+            break
+        elif sum == 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You win!")
+            break
+        elif sum > 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You Busted\nThe computer wins!")
+            break
+        elif total == 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("The computer wins!")
+            break
+        elif total > 21:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("The computer busted!\nYou win!")
+            break
+    if ask == "no":
+        finished = True
+        if sum > total:
+            print(f"\nThe sum of the computer's final cards are {total}")
+            print("You win!")
+        elif sum = total:
+            print(f"\nThe sum of the computer's final cards are: {total}")
+            print("You both win!")
+        else:
+            print(f"\nThe sum of the computer's final cards are: {total}")
+            print("The computer wins!")

@@ -1,0 +1,36 @@
+#A program that checks if an inputed year is a leap year or not
+year = int(input("What year do you want to check: "))
+month = int(input('''
+Please enter the month number you want to check: 
+where Jan - 1\nFeb - 2\nMar - 3\nApr - 4\nMay -5\nJun - 6
+Jul - 7\nAug - 8\nSep - 9\nOct - 10\nNov - 11\nDec - 12:
+'''))
+
+def leap_year(year):
+    if year % 4 == 0:
+       if year % 100 == 0:
+         if year % 400 == 0:
+            print("It is a leap year.")
+            return True
+         else:
+            print("It is not a leap year.")
+            return False
+       else:
+            print("It is a leap year.")
+            return True
+    else:
+        print("It is a leap year.")
+        return False
+
+
+def spe_month(year, month):
+    if month > 12 or month < 1:
+        return "Invalid input dear user. Zero (0)"
+    re_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] #days that make up all 12 months.
+    if leap_year(year) and month == 2: #refers back to another function and runs it enitrely
+        return 29
+    return re_months[month - 1] #in list, elements are indexed from 0, so the minus 1 to imply the second element if user inputs 2
+
+
+days = spe_month(year, month) #the arguments in a function call are the real variable value that are filled in the function def where th other variables were used 
+print(f"{days} days make up this month.")

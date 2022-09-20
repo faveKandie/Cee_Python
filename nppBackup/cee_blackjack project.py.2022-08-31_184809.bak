@@ -1,0 +1,15 @@
+import random
+                   
+cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'Q', 'J']
+
+random.shuffle(cards)
+print(cards)
+
+card = int(input(f"Please draw a card from 13 card: "))
+
+for position in range(0, 12):
+    for rand in cards:
+        v = cards[position]
+        print(v5)
+shecard = random.choice(cards)
+print(f"The computers first card is {shecard}")

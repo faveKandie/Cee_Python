@@ -1,0 +1,119 @@
+resources = {"Cappucino": "$40 for each 25ml",
+"Latte": "$30 for each 25ml",
+"Expresso": "$35 for each 25ml",
+"milk": "$10 for each use"}
+
+print("A cup is 75ml full")
+for n in resources:
+    print(f"{n} : {resources[n]}")
+
+def process():
+    add = ("What other order do you want to make: ")
+    if add == "cappucino":
+        want = int(input(f"What ml do you want to order or press 0 to end: "))
+        total = (want/ 25) * 40 
+        price += total
+        cup -= want 
+        print(f"The total price is {price}")
+    elif add == "latte":
+        want = int(input(f"What ml do you want to order or press 0 to end: "))
+        total = (want/ 25) * 30 
+        price += total
+        cup -= want 
+        print(f"The total price is {price}")
+    elif add == "expresso":
+        want = int(input(f"What ml do you want to order or press 0 to end: "))
+        total = (want/ 25) * 35 
+        price += total
+        cup -= want 
+        print(f"The total price is {price}")
+
+def plead():
+    say = input("What would you like to order?\ncappucino , latte or expresso: ")
+    confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+    bit = False
+    while not bit:
+        if confirm == "back":
+            print("\n")
+            say = input("What would you like to order?\ncappucino , latte or expresso: ")
+            confirm = input("Are you sure of your order? Press 'dispense' if that's it or 'back' to change order: ")
+        elif confirm == "dispense":
+            bit = True
+            said = False
+            while not said:
+                cup = 75
+                price = 0
+                if say == "cappucino":
+                    want = int(input(f"What ml do you want to order or press 0 to end: "))
+                    if want == 0:
+                        said = True
+                    else:
+                        total = (want/ 25) * 40
+                        price += total
+                        cup -= want 
+                        print(f"The remaining quantity of cappucino is: {cup} ml")
+                        print(price)
+                        add = ("What other order do you want to make: ")
+                        if add == "cappucino":
+                            want = int(input(f"What ml do you want to order or press 0 to end: "))
+                            total = (want/ 25) * 40 
+                            price += total
+                            cup -= want 
+                            print(f"The total price is {price}")
+                        elif add == "latte":
+                            want = int(input(f"What ml do you want to order or press 0 to end: "))
+                            total = (want/ 25) * 30 
+                            price += total
+                            cup -= want 
+                            print(f"The total price is {price}")
+                        elif add == "expresso":
+                            want = int(input(f"What ml do you want to order or press 0 to end: "))
+                            total = (want/ 25) * 35 
+                            price += total
+                            cup -= want 
+                            print(f"The total price is {price}")
+                        if cup >= 0:
+                            process()
+                            if cup >= 0:
+                                process()
+                            elif cup < 0:
+                                print("You have reached maximum quantity")
+                                said = True
+                                break
+
+                if say == "latte":
+                    want = int(input(f"What ml do you want to order or press 0 to end: "))
+                    Quantity_L -= want
+                    print(f"The remaining quantity of cappucino is: {Quantity_L} ml")
+                    if want == 0:
+                        said = True
+                        break
+                    elif want > Quantity_L:
+                        print("Insufficient quantity")
+                        said = True
+                    elif want <= Quantity_L:
+                        print("Your order is being dispensed.")
+
+                if say == "expresso":
+                    want = int(input(f"What ml do you want to order or press 0 to end: "))
+                    Quantity_E -= want
+                    print(f"The remaining quantity of cappucino is: {Quantity_E} ml")
+                    if want == 0:
+                        said = True
+                        break
+                    elif want > Quantity_E:
+                        print("Insufficient quantity")
+                        said = True
+                    elif want <= Quantity_E:
+                        print("Your order is being dispensed.")
+
+
+plead()
+ask = input("another order?: ")
+beat = False
+while not beat:
+    if ask == "yes":
+        plead()
+        break
+    if ask == "no":
+        beat = True

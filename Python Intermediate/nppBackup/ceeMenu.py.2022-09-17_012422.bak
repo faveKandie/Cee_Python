@@ -1,0 +1,8 @@
+def menu():
+	var = PrettyTable()
+	var.add_column("s/n", ["1", "2", "3"])
+	var.add_column("Resources", ["Fanta", "Coke", "Sprite"])
+	var.add_column("Price per 25ml", ["$15", "$20", "$10"])
+	print(var)
+
+menu()

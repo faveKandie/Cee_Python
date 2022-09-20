@@ -1,0 +1,29 @@
+import prettytable
+from prettytable import PrettyTable
+display = PrettyTable()
+display.add_column("All Drinks")
+display.add_column("Zero Sugar")
+display.add_column("Coffee")
+
+realorder = input("Chose a category from the display screen: ").lower()
+if realorder == "all drinks":
+	import ceeMenu
+	import newmenu
+elif realorder == "zero sugar":
+	import cee_dietmenu
+	
+
+bask = False
+while not bask:
+	true = input("Are there any other players? Yes or no: ").lower()
+	if true == "yes":
+		import ceeMenu
+		from ceeMenu import menu
+		faith = menu()
+		print(faith)
+		import newmenu
+		from newmenu import act
+		said = act()
+		print(said)
+	elif true == "no":
+		bask = True

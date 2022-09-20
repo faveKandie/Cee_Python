@@ -1,0 +1,6 @@
+def add(a,b):
+  result = a + b
+  
+  print(result)
+
+ans = add(a, b)
