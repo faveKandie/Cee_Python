@@ -1,0 +1,43 @@
+import turtle
+
+from turtle import Turtle, Screen
+
+timmy = Turtle()
+timmy.shape("turtle")
+timmy.color("pink")
+timmy.speed(1)
+timmy.forward(100)
+timmy.right(90)
+timmy.forward(100)
+timmy.right(90)
+timmy.forward(100)
+timmy.right(90)
+timmy.forward(100)
+print(timmy)
+
+john = Turtle()
+
+for _ in range(0, 15):
+		john.shape("turtle")
+		john.color("purple")
+		john.speed(1)
+		john.forward(10)
+		john.penup()
+		john.forward(10)
+		john.pendown()
+print(john)
+
+cee = Turtle()
+cee.shape("turtle")
+cee.speed(1)
+cee.color("blue")
+
+for n in range(3, 9, 1):
+	for _ in range(n):
+		angle = (360 / n)
+		cee.forward(100)
+		cee.right(angle)
+
+
+screen = Screen()
+screen.exitonclick()

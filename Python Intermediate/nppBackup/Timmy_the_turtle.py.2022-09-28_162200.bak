@@ -1,0 +1,105 @@
+import turtle
+import random
+from turtle import Turtle, Screen, colormode
+
+turtle.colormode(255)
+
+timmy = Turtle()
+timmy.pensize(2)
+timmy.shape("turtle")
+timmy.color("pink")
+timmy.speed(6)
+timmy.forward(100)
+timmy.left(90)
+timmy.forward(100)
+timmy.left(90)
+timmy.forward(100)
+timmy.left(90)
+timmy.forward(100)
+print(timmy)
+
+john = Turtle()
+john.pensize(2)
+for _ in range(0, 15):
+		john.shape("turtle")
+		john.color("purple")
+		john.speed(6)
+		john.forward(10)
+		john.penup()
+		john.forward(10)
+		john.pendown()
+print(john)
+
+cee = Turtle()
+cee.shape("turtle")
+cee.color("violet")
+cee.speed(6)
+cee.pensize(3)
+colours = ["pale violet red", "hot pink", "deep pink", "cornflower blue", "steel blue", "light sky blue", "violet", "pink", "yellow"]
+for n in range(3, 15, 1):
+	cee.color(random.choice(colours))
+	for _ in range(n):
+		angle = (360 / n)
+		cee.forward(100)
+		cee.right(angle)
+cee.forward(100)
+
+tar = Turtle()
+tar.shape("turtle")
+tar.speed("fastest")
+tar.pensize(15)
+directions = [0, 90, 180, 270, 360]
+for n in range(100):
+	tar.color(random.choice(colours))
+	movement = [tar.right(random.choice(directions)), tar.forward(30), tar.left(random.choice(directions)), tar.backward(30)]
+	random.choice(movement)
+
+par = Turtle()
+par.shape("turtle")
+par.speed("fastest")
+par.pensize(7)
+directions = [0, 90, 180, 270, 360]
+for n in range(100):
+	r = random.randint(0, 255)
+	g = random.randint(0, 255)
+	b = random.randint(0, 255)
+	new_tuple = (r, g, b)
+	par.pencolor(new_tuple)
+	movement = [par.right(random.choice(directions)), par.forward(30), par.left(random.choice(directions)), par.backward(30)]
+	random.choice(movement)
+
+rad = Turtle()
+rad.speed("fastest")
+for n in range(73):
+	rad.shape("classic")
+	r = random.randint(0, 255)
+	g = random.randint(0, 255)
+	b = random.randint(0, 255)
+	new_tuple = (r, g, b)
+	rad.color(random.choice(colours))
+	rad.circle(100)
+	rad.right(5)
+
+
+color_list = [(95, 158, 160), (100, 149, 237), (176, 196, 222), (147, 112, 219), (255, 192, 203), (255, 218, 185), (255, 105, 180), (176, 224, 230), (135, 206, 250), (255, 20, 147), (221, 160, 221)]
+rich = Turtle()
+rich.shape("turtle")
+
+rich.setheading(225)
+rich.forward(300)
+rich.setheading(0)
+
+def real():
+	for _ in range(0, 11):
+		rich.dot(20, random.choice(color_list))
+		rich.forward(30)
+		rich.penup()
+		rich.forward(30)
+		rich.pendown()
+
+rate = False
+n = 0
+for n < 21:
+	n += 1
+	real()
+	rich.setheading(90)

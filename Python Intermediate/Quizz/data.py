@@ -1,3 +1,5 @@
+import random
+
 question_data = [
 {"text": "A slug's blood is green.", "answer": "True"},
 {"text": "The loudest animal is the African Elephant.", "answer": "False"},
@@ -12,3 +14,5 @@ question_data = [
 {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
 {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
 ]
+random.shuffle(question_data)
+#a dictionary module containing elements of the question. These elements have positional arrays in the list starting from 0 upward

@@ -1,0 +1,59 @@
+import turtle
+import random
+from turtle import Turtle, Screen
+
+timmy = Turtle()
+timmy.shape("turtle")
+timmy.color("pink")
+timmy.speed(3)
+timmy.forward(100)
+timmy.left(90)
+timmy.forward(100)
+timmy.left(90)
+timmy.forward(100)
+timmy.left(90)
+timmy.forward(100)
+print(timmy)
+
+john = Turtle()
+
+for _ in range(0, 15):
+		john.shape("turtle")
+		john.color("purple")
+		john.speed(3)
+		john.forward(10)
+		john.penup()
+		john.forward(10)
+		john.pendown()
+print(john)
+
+cee = Turtle()
+cee.shape("turtle")
+cee.color("violet")
+cee.speed(4)
+
+colours = ["pale violet red", "hot pink", "deep pink", "cornflower blue", "steel blue", "light sky blue", "violet"]
+for n in range(3, 10, 1):
+	cee.color(random.choice(colours))
+	for _ in range(n):
+		angle = (360 / n)
+		cee.forward(100)
+		cee.right(angle)
+cee.forward(100)
+
+tar = Turtle()
+tar.shape("turtle")
+tar.speed(1)
+
+for n in range(0, 10, 1):
+	tar.color(random.choice(colours))
+	movement = [tar.right(90), tar.left(90)]
+	random.choice(movement)
+	for _ in range(1):
+		movement = [tar.right(90), tar.left(90), tar.forward(70), tar.backward(70)]
+		random.choice(movement)
+
+
+
+screen = Screen()
+screen.exitonclick()

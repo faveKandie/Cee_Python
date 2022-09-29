@@ -1,0 +1,20 @@
+import turtle
+
+from turtle import Turtle, Screen
+
+timmy = Turtle()
+timmy.shape("turtle")
+timmy.color("pink")
+timmy.speed(1)
+timmy.forward(100)
+timmy.backward(70)
+timmy.right(80)
+timmy.forward(90)
+timmy.circle(30)
+timmy.left(70)
+timmy.backward(200)
+timmy.right(70)
+print(timmy)
+
+screen = Screen()
+screen.exitonclick()
