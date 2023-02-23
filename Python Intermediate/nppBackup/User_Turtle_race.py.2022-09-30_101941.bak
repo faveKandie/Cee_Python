@@ -1,0 +1,51 @@
+import turtle
+from turtle import Turtle, Screen, colormode
+turtle.colormode(255)
+import random
+screen = Screen()
+screen.setup(width = 700, height = 700)
+
+get = Turtle()
+rate = False
+user_bet = screen.numinput(title = "WELCOME TO TURTLE RACE!🦋", prompt = "How many players are there?: ")
+rad = int(user_bet)
+all_turtle = []
+screen.listen()
+
+color_list = ["pink", "red", "blue", "green", "orange"]
+get.color("white")
+for n in range(rad):
+	get = Turtle()
+	get.shape("turtle")
+	get.penup()
+	get.color(color_list[n])
+	get.setheading(270)
+	get.forward(n * 70)
+	get.setheading(0)
+	get.backward(300)
+	all_turtle.append(get)
+
+def forward():
+	all_turtle[0].forward(5)
+def foorward():
+	all_turtle[1].forward(5)
+def fooorward():
+	all_turtle[2].forward(5)
+def foooorward():
+	all_turtle[3].forward(5)
+def fooooorward():
+	all_turtle[4].forward(5)
+
+for n in range(0, 100, 5):
+	if n < 10:
+		screen.onkey(key = "a", fun = forward)
+		screen.onkey(key = "b", fun = foorward)
+		screen.onkey(key = "c", fun = fooorward)
+		screen.onkey(key = "d", fun = foooorward)
+		screen.onkey(key = "e", fun = fooooorward)
+	elif n >= 10:
+		for m in range(rad):
+			all_turtle[m].reset()
+		winning_color = turt.pencolor()
+		print(f"The {winning_color} turtle is the winner")
+

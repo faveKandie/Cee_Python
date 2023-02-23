@@ -1,0 +1,15 @@
+from turtle import Turtle, Screen
+screen = Screen()
+screen.listen()
+screen.setup(width = 800, height = 800)
+per = Turtle()
+per.shape("turtle")
+
+cars = Turtle()
+road = Turtle()
+
+road = 
+def forward():
+	per.forward(10)
+def backward():
+	per.backward(10)

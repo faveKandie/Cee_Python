@@ -1,0 +1,26 @@
+from turtle import Turtle, Screen
+screen = Screen()
+screen.listen()
+screen.setup(width = 800, height = 800)
+per = Turtle()
+per.shape("turtle")
+
+cars = Turtle()
+road = Turtle()
+
+road.setheading(270)
+road.penup()
+road.forward(300)
+road.setheading(0)
+road.forward(400)
+road.setheading(180)
+for _ in range(20):
+	road.pendown()
+	road.forward(70)
+	road.penup()
+	road.forward(70)
+
+def forward():
+	per.forward(10)
+def backward():
+	per.backward(10)

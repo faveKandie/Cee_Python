@@ -1,0 +1,14 @@
+import turtle
+from turtle import Turtle, Screen
+
+wall = Turtle()
+wall.color("white")
+wall.shape("turtle")
+wall.pencolor("orange")
+wall.pensize(15)
+wall.penup()
+wall.backward(450)
+wall.setheading(270)
+wall.pendown()
+wall.forward(250)
+print(wall)

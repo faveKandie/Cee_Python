@@ -1,0 +1,84 @@
+import turtle
+from turtle import Turtle, Screen, colormode
+turtle.colormode(255)
+import random
+screen = Screen()
+screen.setup(width = 700, height = 700)
+
+cprint("The maximum number of turtle players is five.")
+print("The pink turtle is the first turtle. To move forward press a")
+print("The red turtle is the second turtle. To move forward press b")
+print("The blue turtle is the third turtle. To move forward press c")
+print("The green turtle is the fourth turtle. To move forward press d")
+print("The orange turtle is the fifth turtle. To move forward press e")
+
+get = Turtle()
+rate = False
+user_bet = screen.numinput(title = "WELCOME TO TURTLE RACE!🦋", prompt = "How many players are there?: ")
+rad = int(user_bet)
+all_turtle = []
+screen.listen()
+
+color_list = ["pink", "red", "blue", "green", "orange"]
+get.color("white")
+for n in range(rad):
+	get = Turtle()
+	get.shape("turtle")
+	get.penup()
+	get.color(color_list[n])
+	get.setheading(270)
+	get.forward(n * 70)
+	get.setheading(0)
+	get.backward(300)
+	all_turtle.append(get)
+
+vee = rad - 1
+def forward():
+	if all_turtle[0].xcor() > 330:
+		print(f"The {color_list[0]} turtle is the winner!")
+		for n in range(rad):
+			all_turtle[n].setheading(180)
+			all_turtle[n].home()
+	else:
+		all_turtle[0].forward(5)
+def foorward():
+	if all_turtle[1].xcor() > 330:
+		print(f"The {color_list[1]} turtle is the winner!")
+		for n in range(rad):
+			all_turtle[n].setheading(180)
+			all_turtle[n].home()
+	else:
+		all_turtle[1].forward(5)
+def fooorward():
+	if all_turtle[2].xcor() > 330:
+		print(f"The {color_list[2]} turtle is the winner!")
+		for n in range(rad):
+			all_turtle[n].setheading(180)
+			all_turtle[n].home()
+	else:
+		all_turtle[2].forward(5)
+def foooorward():
+	if all_turtle[3].xcor() > 330:
+		print(f"The {color_list[3]} turtle is the winner!")
+		for n in range(rad):
+			all_turtle[n].setheading(180)
+			all_turtle[n].home()
+	else:
+		all_turtle[3].forward(5)
+def fooooorward():
+	if all_turtle[4].xcor() > 330:
+		print(f"The {color_list[4]} turtle is the winner!")
+		for n in range(rad):
+			all_turtle[n].setheading(180)
+			all_turtle[n].home()
+	else:
+		all_turtle[4].forward(5)
+
+
+screen.onkey(key = "a", fun = forward)
+screen.onkey(key = "b", fun = foorward)
+screen.onkey(key = "c", fun = fooorward)
+screen.onkey(key = "d", fun = foooorward)
+screen.onkey(key = "e", fun = fooooorward)
+
+

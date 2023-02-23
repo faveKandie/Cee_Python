@@ -1,0 +1,36 @@
+from turtle import Turtle, Screen
+
+var = Turtle()#accessingthe Turtle class
+screen = Screen()#accessing the Screen class
+var.shape("turtle")
+var.color("deep pink")
+
+screen.listen()#accessing the screen methods
+
+def penu():
+	var.penup()
+def pend():
+	var.pendown()
+def forward():
+	var.forward(70)
+def backward():
+	var.backward(70)
+def right():
+	var.right(30)
+def left():
+	var.left(30)
+def undoo():
+	var.undo()
+def clear():
+	screen.clear()
+
+screen.onkey(key = "f", fun = forward)
+screen.onkey(key = "b", fun = backward)
+screen.onkey(key = "r", fun = right)
+screen.onkey(key = "l", fun = left)
+screen.onkey(key = "a", fun = penu)
+screen.onkey(key = "z", fun = pend)
+screen.onkey(key = "u", fun = undoo)
+screen.onkey(key = "c", fun = clear)
+
+screen.exitonclick()

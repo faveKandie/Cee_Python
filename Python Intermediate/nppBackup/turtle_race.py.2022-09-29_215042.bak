@@ -1,0 +1,27 @@
+import turtle
+from turtle import Turtle, Screen, colormode
+turtle.colormode(255)
+import random
+var = Turtle()
+screen = Screen()
+screen.setup(700, 700)
+
+def state(get, rad):
+	color_list = [(95, 158, 160), (100, 149, 237), (176, 196, 222), (147, 112, 219), (255, 192, 203), (255, 218, 185), (255, 105, 180), (176, 224, 230), (135, 206, 250), (255, 20, 147), (221, 160, 221)]
+	get.color("white")
+	speed = [1, 2, 3, 4, 5]
+	num = [0, 1, 2, 3, 4]
+	get.speed(random.choice(speed))
+	for n in range(5):
+		get = Turtle()
+		get.shape("turtle")
+		get.penup()
+		get.color(color_list[n])
+		get.setheading(270)
+		get.forward(n * 70)
+		get.setheading(0)
+		get.backward(300)
+	rad[random.choice(num)].forward(random.choice(speed))
+
+state(var, edd)
+

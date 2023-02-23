@@ -1,0 +1,68 @@
+import turtle
+import random
+import time
+from turtle import Turtle, Screen
+
+var = Screen()
+var.listen()
+var.setup(width = 800, height = 800)
+var.bgcolor("black")
+
+cars = Turtle()
+road = Turtle()
+
+y = 300
+road.pensize(7)
+road.pencolor("white")
+road.setheading(270)
+road.penup()
+road.forward(y)
+road.setheading(0)
+road.forward(380)
+road.setheading(180)
+for _ in range(8):
+	road.pendown()
+	road.forward(50)
+	road.penup()
+	road.forward(50)
+rady = True
+
+while rady:
+	if road.xcor() <= -380:
+		roady = road.ycor()
+		roady += 90
+		road.goto(380, roady)
+		for _ in range(8):
+			road.pendown()
+			road.forward(50)
+			road.penup()
+			road.forward(50)
+	if road.ycor() >= 300:
+		rady = False
+
+per = Turtle()
+per.shape("turtle")
+per.color("white")
+per.penup()
+per.goto(0, -380)
+per.setheading(90)
+per.penup()
+
+def forward():
+	per.setheading(90)
+	per.forward(20)
+def backward():
+	per.backward(20)
+def right():
+	per.setheading(0)
+	per.forward(20)
+def left():
+	per.setheading(180)
+	per.forward(20)
+
+
+var.onkey(forward, "Up")
+var.onkey(backward, "Down")
+var.onkey(right, "Right")
+var.onkey(left, "Left")
+var.exitonclick()

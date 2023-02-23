@@ -1,0 +1,45 @@
+import turtle
+from turtle import Turtle, Screen, colormode
+turtle.colormode(255)
+import random
+all_turtle = Screen()
+screen = Screen()
+screen.setup(width = 700, height = 700)
+
+get = Turtle()
+race_on = True
+user_bet = screen.numinput(title = "WELCOME TO TURTLE RACE!🦋", prompt = "How many players are there?: ")
+rad = int(user_bet)
+all_turtle = []
+
+all_turtle.listen()
+def forward():
+	var.forward(5)
+
+color_list = ["pink", "red", "blue", "green", "orange"]
+get.color("white")
+for n in range(rad):
+	get = Turtle()
+	get.shape("turtle")
+	get.penup()
+	get.color(color_list[n])
+	get.setheading(270)
+	get.forward(n * 70)
+	get.setheading(0)
+	get.backward(300)
+	all_turtle.append(get)
+
+if user_bet:
+	race_on = False
+
+while not race_on:
+	for turt in all_turtle:
+		if turt.xcor() > 330:
+			race_on = True
+			winning_color = turt.pencolor()
+			if winning_color == user_bet:
+				print(f"You've won. The {winning_color} turtle is the winner")
+			else:
+				print(f"You've lost. The {winning_color} turtle is the winner")
+		all_turtle[0].onkey(key = "space", fun = forward)
+

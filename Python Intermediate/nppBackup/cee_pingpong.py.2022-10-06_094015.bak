@@ -1,0 +1,44 @@
+import turtle
+import random
+from turtle import Turtle, Screen
+
+var = Screen()
+var.setup(width = 800, height = 600)
+colours = ["pale violet red", "hot pink", "cornflower blue", "steel blue", "light sky blue", "violet", "pink"]
+var.bgcolor(random.choice(colours))
+var.title("Cee Ping Pong")
+var.listen()
+
+bar1 = Turtle()
+bar1.shape("square")
+bar1.shapesize(5, 1)
+bar1.penup()
+bar1.speed("fastest")
+new_x = bar1.xcor()
+new_y = 0
+bar1.goto(350, new_y)
+
+def forward1():
+	global new_y
+	new_y += 50
+	bar1.penup()
+	bar1.goto(350, new_y)
+
+def backward1():
+	global new_y
+	new_y -= 50
+	bar1.penup()
+	bar1.goto(350, new_y)
+
+def front():
+	bar1.forward(50)
+
+def back():
+	bar1.backward(50)
+
+var.onkey(forward1, "Up")
+var.onkey(backward1, "Down")
+var.onkey(front, "Left")
+var.onkey(back, "Right")
+
+var.exitonclick()

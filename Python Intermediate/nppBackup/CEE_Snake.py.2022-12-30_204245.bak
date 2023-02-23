@@ -1,0 +1,10 @@
+#rebuilding my snake game because it has disappeared
+import turtle
+from turtle import Turtle, Screen, colormode
+
+var = Screen()
+var.setup(width = 600, height = 600)
+var.bgcolor("black")
+snake = Turtle()
+snake.color("white")
+var.exitonclick()

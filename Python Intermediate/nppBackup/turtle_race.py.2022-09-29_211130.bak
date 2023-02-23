@@ -1,0 +1,22 @@
+import turtle
+from turtle import Turtle, Screen, colormode
+turtle.colormode(255)
+
+var = Turtle()#accessingthe Turtle class
+rad = Turtle()
+
+def state(get):
+	for n in range(5):
+		get.shape("turtle")
+		get.penup()
+		get.color(colour_list[n])
+		get.right(n * 90)
+		get.forward(70)
+		get.setheading(0)
+	print(get)
+
+state(var)
+state(rad)
+state(edd)
+state(read)
+state(sod)

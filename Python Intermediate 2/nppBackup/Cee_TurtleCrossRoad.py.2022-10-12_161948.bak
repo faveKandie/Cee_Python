@@ -1,0 +1,26 @@
+
+var.tracer(0)
+
+POSITION = [(500, -350), (500, -260), (500, -170), (500, -80), (500, 10), (500, 100), (500, 190), (500, 280)]
+colours = ["pale violet red", "hot pink", "cornflower blue", "steel blue", "light sky blue", "violet", "pink"]
+segment = []
+number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+num = 1
+
+rate = True
+while rate:
+	time.sleep(0.1)
+	var.update()
+	rand = random.randint(0, 6)
+	if rand == 1 or rand == 3:
+		new_cars = Turtle("square")
+		new_cars.shapesize(1, 2)
+		new_cars.color(random.choice(colours))
+		new_cars.penup()
+		new_cars.setheading(180)
+		new_cars.goto(random.choice(POSITION))
+		segment.append(new_cars)
+	for car in segment:
+		car.forward(30)
+
+var.update()

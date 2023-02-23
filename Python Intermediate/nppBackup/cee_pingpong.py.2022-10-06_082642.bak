@@ -1,0 +1,6 @@
+import turtle
+from turtle import Turtle, Screen
+var = Screen()
+var.setup(width = 800, height = 600)
+var.bgcolor("light sky blue")
+var.listen()

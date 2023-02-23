@@ -1,0 +1,8 @@
+import turtle
+from turtle import Turtle, Screen
+
+wall = Turtle()
+wall.color("white")
+wall.pencolor("dark pink")
+wall.forward(100)
+print(wall)

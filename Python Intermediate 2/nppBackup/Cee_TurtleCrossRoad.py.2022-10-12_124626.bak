@@ -1,0 +1,65 @@
+from turtle import Turtle, Screen
+screen = Screen()
+screen.listen()
+screen.setup(width = 800, height = 800)
+per = Turtle()
+per.shape("turtle")
+screen.bgcolor("black")
+cars = Turtle()
+road = Turtle()
+import random
+import time
+screen.tracer(0)
+y = 300
+road.pensize(7)
+road.pencolor("white")
+road.setheading(270)
+road.penup()
+road.forward(y)
+road.setheading(0)
+road.forward(380)
+road.setheading(180)
+for _ in range(8):
+	road.pendown()
+	road.forward(50)
+	road.penup()
+	road.forward(50)
+rady = True
+while rady:
+	if road.xcor() <= -380:
+		roady = road.ycor()
+		roady += 90
+		road.goto(380, roady)
+		for _ in range(8):
+			road.pendown()
+			road.forward(50)
+			road.penup()
+			road.forward(50)
+	if road.ycor() >= 300:
+		rady = False
+
+POSITION = [(400, -350), (400, -260), (400, -170), (400, -80), (400, 10), (400, 100), (400, 190), (400, 280)]
+colours = ["pale violet red", "hot pink", "cornflower blue", "steel blue", "light sky blue", "violet", "pink"]
+segment = []
+
+for x in range(20):
+	new_cars = Turtle("square")
+	new_cars.shapesize(1, 3)
+	new_cars.color(random.choice(colours))
+	new_cars.penup()
+	segment.append(new_cars)
+
+rate = True
+while rate:
+	time.sleep(0.1)
+	screen.update()
+	rad = random.choice(POSITION)
+	if segment[rad].xcor() <= 340 and new_cars.xcor() >= 300:
+		segment[rad].goto(random.choice(POSITION))
+		segment[rad].setheading(180)
+	sement[rad].forward(10)
+
+def forward():
+	per.forward(10)
+def backward():
+	per.backward(10)

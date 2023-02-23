@@ -1,0 +1,197 @@
+import turtle
+import random
+import time
+from turtle import Turtle, Screen
+screen = Screen()
+screen.bgcolor("black")
+screen.setup(width = 900, height = 900)
+screen.tracer(0)
+screen.title("Cee Snake Game")
+screen.listen()
+colours = ["pale violet red", "hot pink", "cornflower blue", "steel blue", "light sky blue", "violet", "pink"]
+
+wall = Turtle()
+wall.color("white")
+wall.shape("turtle")
+wall.pencolor(random.choice(colours))
+wall.pensize(15)
+wall.speed("fastest")
+wall.penup()
+wall.backward(440)
+wall.setheading(270)
+wall.pendown()
+wall.forward(430)
+wall.setheading(0)
+wall.forward(870)
+wall.setheading(90)
+wall.forward(870)
+wall.setheading(180)
+wall.forward(870)
+wall.setheading(270)
+wall.forward(350)
+wall.penup()
+wall.forward(30)
+wall.setheading(0)
+wall.forward(90)
+wall.pendown()
+wall.setheading(90)
+wall.forward(320)
+wall.setheading(0)
+wall.forward(100)
+wall.setheading(270)
+wall.forward(250)
+wall.setheading(0)
+wall.penup()
+wall.forward(90)
+wall.setheading(0)
+wall.pendown()
+wall.forward(120)
+wall.setheading(90)
+wall.forward(145)
+wall.setheading(180)
+wall.forward(70)
+wall.setheading(90)
+wall.forward(90)
+wall.setheading(0)
+wall.forward(200)
+wall.setheading(270)
+wall.forward(320)
+wall.setheading(180)
+wall.forward(280)
+wall.setheading(270)
+wall.forward(70)
+wall.setheading(180)
+wall.forward(150)
+wall.setheading(270)
+wall.forward(305)
+wall.setheading(0)
+wall.forward(670)
+wall.setheading(90)
+wall.forward(670)
+wall.setheading(180)
+wall.forward(150)
+wall.setheading(0)
+wall.forward(45)
+wall.setheading(270)
+wall.forward(570)
+wall.setheading(180)
+wall.forward(470)
+wall.setheading(90)
+wall.forward(100)
+wall.setheading(270)
+wall.forward(100)
+wall.setheading(0)
+wall.forward(235)
+wall.setheading(90)
+wall.forward(150)
+wall.setheading(0)
+wall.forward(65)
+wall.setheading(180)
+wall.forward(130)
+
+wall.ht()
+screen.update()
+
+
+shawn = Turtle()
+shawn.penup()
+shawn.shape("circle")
+shawn.penup()
+shawn.shapesize(0.5, 0.5)
+shawn.color(random.choice(colours))
+shawn.speed("fastest")
+random_x = random.randint(-430, 430)
+random_y = random.randint(-430, 430)
+shawn.goto(random_x, random_y)
+
+def refresh():
+	random_x = random.randint(-430, 430)
+	random_y = random.randint(-430, 430)
+	shawn.goto(random_x, random_y)
+
+starting_pos = [(0, 0), (-20, 0), (-40, 0)]
+segments = []
+for position in starting_pos:
+	new_segment = Turtle("square")
+	new_segment.color(random.choice(colours))
+	new_segment.penup()
+	new_segment.goto(position)
+	segments.append(new_segment)
+	rad = segments[0]
+	print(rad)
+
+board = Turtle()
+board.color("white")
+board.ht()
+board.penup()
+board.goto(0, 410)
+
+score = 0
+def red():
+	game_on = True
+	while game_on:
+		global score
+		screen.update()
+		time.sleep(0.1)
+		for seg in range(len(segments) - 1, 0, -1):
+			new_x = segments[seg - 1].xcor()
+			new_y = segments[seg - 1].ycor()
+			segments[seg].goto(new_x, new_y)
+		if segments[0].distance(shawn) < 17:
+			refresh()
+			score += 1
+			board.clear()
+			board.write(f"YOUR CURRENT SCORE IS : {score}")
+			segments.append(new_segment)
+		segments[0].forward(10)
+		if segments[0].xcor() == 430 or segments[0].xcor() == -430 or segments[0].ycor() == 430 or segments[0].ycor == -430:
+			game_on = False
+		elif segments[0].xcor() == 310:
+			game_on = False
+			board.write(f"Game Over! Your final score is {score}")
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
+
+def blue():
+		screen.update()
+		for seg in range(len(segments) - 1, 0, -1):
+			new_x = segments[seg - 1].xcor()
+			new_y = segments[seg - 1].ycor()
+			segments[seg].goto(new_x, new_y)
+		if segments[0].heading() != DOWN:
+			segments[0].setheading(UP)
+
+def green():
+		screen.update()
+		for seg in range(len(segments) - 1, 0, -1):
+			new_x = segments[seg - 1].xcor()
+			new_y = segments[seg - 1].ycor()
+			segments[seg].goto(new_x, new_y)
+		if segments[0].heading() != RIGHT:
+			segments[0].setheading(LEFT)
+
+def pink():
+		screen.update()
+		for seg in range(len(segments) - 1, 0, -1):
+			new_x = segments[seg - 1].xcor()
+			new_y = segments[seg - 1].ycor()
+			segments[seg].goto(new_x, new_y)
+		if segments[0].heading() != UP:
+			segments[0].setheading(DOWN)
+
+def orange():
+		screen.update()
+		for seg in range(len(segments) - 1, 0, -1):
+			new_x = segments[seg - 1].xcor()
+			new_y = segments[seg - 1].ycor()
+			segments[seg].goto(new_x, new_y)
+		if segments[0].heading() != LEFT:
+			segments[0].setheading(RIGHT)
+
+screen.onkey(red, "space")
+screen.onkey(blue, "Up")
+screen.onkey(green, "Left")
+screen.onkey(pink, "Down")
+screen.onkey(orange, "Right")

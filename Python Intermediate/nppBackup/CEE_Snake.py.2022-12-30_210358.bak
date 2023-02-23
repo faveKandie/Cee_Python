@@ -1,0 +1,20 @@
+#rebuilding my snake game because it has disappeared
+import turtle
+import time
+from turtle import Turtle, Screen, colormode
+
+var = Screen()
+var.setup(width = 600, height = 600)
+var.bgcolor("black")
+var.title("Cee Ping Pong")
+var.listen()
+var.trace(0)
+snake = Turtle()
+snake.color("white")
+snake.shape("square")
+
+game_on = True
+while game_on:
+	time.sleep(0.09)
+	var.update()
+var.exitonclick()

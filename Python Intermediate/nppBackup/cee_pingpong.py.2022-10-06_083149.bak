@@ -1,0 +1,10 @@
+import turtle
+import random
+from turtle import Turtle, Screen
+var = Screen()
+var.setup(width = 800, height = 600)
+colours = ["pale violet red", "hot pink", "cornflower blue", "steel blue", "light sky blue", "violet", "pink"]
+var.bgcolor(random.choice(colours))
+var.title("Cee Ping Pong")
+var.listen()
+var.exitonclick()
