@@ -2,6 +2,8 @@
 import turtle
 from turtle import Turtle, Screen, colormode
 import time
+import datetime
+import threading
 import random
 import tkinter
 from random import randint
@@ -17,6 +19,7 @@ varsc = Screen()
 score = 0
 board = Turtle()
 board.ht()
+
         
 
 #writing the main program function
@@ -30,6 +33,7 @@ def gamer():
     sheet.append(score)
     score = 0
     board.clear()
+    bree = Turtle()#to write the number of lives on the screen
     
     board.ht()
     #building essentials
@@ -146,28 +150,7 @@ def gamer():
     wall.penup()
     wall.forward(250)
     wall.pendown()
-    wall.forward(210)
-
-    #creating lives functionality
-    def lives():
-        lives_input = varsc.textinput(title = "cee-amoby_snakeGame", prompt = "Do you want to save yourself?: ")
-
-        with open("cee_lives3.t2t", mode = "r") as lives:
-            conts = lives.read()
-            lives1 = int(conts)
-        print(lives1)    
-
-        if lives_input == "yes" or user_input == "YES" and lives1 != 0:
-            lives1 -= 1
-            with open("cee_lives3.t2t", mode = "w") as lives2:
-                lives2.write(f"{lives1}")
-            with open("cee_lives3.t2t", mode = "r") as lives3:
-                cont2 = lives3.read()
-                free = int(cont2)
-            print(free)
-            segments[0].goto(0, 0)
-            segments[0].forward(15)
-    
+    wall.forward(210)    
 
     #creating the snake body
     segments = []
@@ -196,7 +179,7 @@ def gamer():
     speedpick = varscreen.numinput(title = "WELCOME TO CEE SNAKE GAME RACE!🦋", prompt = "Pick a speed between 5, 10 and 15: ")
     
     #creating the food
-    color_list = [(95, 158, 160), (100, 149, 237), (176, 196, 222), (147, 112, 219), (255, 192, 203), (255, 218, 185), (255, 105, 180), (176, 224, 230), (135, 206, 250), (255, 20, 147), (221, 160, 221)]
+    color_list = [(147, 112, 219),(255, 105, 180), (255, 51, 153), (102, 178, 255), (255, 102, 178), (255, 204, 229), (153, 204,255), (204, 153, 255), (255, 153, 204)]
     food = Turtle()
     food.shape("circle")
     food.color(random.choice(color_list))
@@ -204,6 +187,26 @@ def gamer():
     food.shapesize(0.7, 0.7)
     food.speed("fastest")
     
+    #read lives
+    with open("cee_lives3.t2t", mode = "r") as lives:
+        conts = lives.read()
+    lives1 = int(conts)
+    
+    #creating the lives bar view
+    livesbar = []
+    def definite():
+        xad = -500
+        for r in range(lives1):
+            xad += 10
+            liveb = Turtle()
+            liveb.color(random.choice(color_list))
+            liveb.shape("square")
+            liveb.shapesize(0.8, 0.8)
+            liveb.penup()
+            liveb.goto(xad, 355)
+            livesbar.append(liveb)
+    
+    definite()
     #creating the user functionality
     def forward():
         if segments[0].heading() != 180:
@@ -223,12 +226,62 @@ def gamer():
     varscreen.onkey(key = "Left", fun = backward)
     varscreen.onkey(key = "Up", fun = sideR)
     varscreen.onkey(key = "Down", fun = sideL)
-
+    
+    #timer turtle
+    timer = Turtle()
+    timer.goto(-365, 345)
+    timer.color(255, 102, 178)
+    timer.ht()
+    road = Turtle()
+    road.ht()
+    road.color(255, 102, 178)
+    road.penup()
+    road.goto(-510, 370)
+    road.pendown()
+    road.pensize(4)
+    road.setheading(270)
+    road.forward(30)
+    road.setheading(0)
+    road.forward(60)
+    road.setheading(90)
+    road.forward(30)
+    road.setheading(180)
+    road.forward(60)
+    
     #creating the main program
     game = True
+    with open("cee_snake_timeleft", mode = "r") as refill1:
+        realm = refill1.read()
+    word = float(realm)
     while game:
         varscreen.update()
         time.sleep(speedpick * 0.01)
+        current_time = datetime.datetime.now()
+        time_in_15_minutes = current_time + datetime.timedelta(minutes=1)
+        #timer to refill lives in the snake game
+        with open("cee_snake_timeleft", mode = "w") as wen:
+            wen.write(f"{word}")
+        if lives1 < 3:
+            word -= (speedpick * 0.01)
+            with open("cee_snake_timeleft", mode = "w") as wend:
+                wend.write(f"{word}")
+            if word <= 1:
+                word += 120
+                with open("cee_snake_timeleft", mode = "w") as wendy:
+                    wendy.write(f"{word}")
+                lives1 += 1
+                with open("cee_lives3.t2t", mode = "w") as wendo:
+                    wendo.write(f"{lives1}")
+                definite()
+            rattle = word / 60
+            rat = word % 60
+            timer.clear()
+            timer.goto(-365, 345)
+            timer.write(f"{lives1} Bar | {int(rattle)} min:{int(rat)} sec", align = "center", font = ("Comic Sans MS", 12, "bold"))
+        if lives1 >= 3:
+            timer.clear()
+            timer.goto(-420, 345)
+            timer.write(f"{lives1} Bar", align = "center", font = ("Comic Sans MS", 12, "bold"))
         #random things
         new_x = randint(-500, 500)
         new_y = randint(-300, 300)
@@ -237,8 +290,7 @@ def gamer():
             if seggy == segments[0]:
                 pass
             elif segments[0].distance(seggy) < 10:
-                game = False
-                lives()                
+                game = False                
         #snake movement 
         for m in range(len(segments) - 1, 0, -1):
             x = segments[m - 1].xcor() 
@@ -302,8 +354,39 @@ def gamer():
             game = False
         if segments[0].xcor() >= -300 and segments[0].xcor() <= -290 and segments[0].ycor() >= -70 and segments[0].ycor() <= 80:
             game = False
+        #creating the lives function part where user can save themselves
+        end = True
+        while not game and end:
+            lives_input = varsc.textinput(title = "cee-amoby_snakeGame", prompt = "Do you want to save yourself?: ")
+            if lives1 <= 0:
+                varscreen.clear()
+                varscreen.bgcolor("black")
+                board.penup()
+                board.goto(-10, 0)
+                board.color("pink")
+                board.write(f"Low on lives!", align = "center", font = ("Comic Sans MS", 35, "bold"))
+                end = False
+            elif lives_input == "yes" or lives_input == "YES" and lives1 != 0:                
+                lives1 -= 1
+                livesbar[-1].ht()
+                del livesbar[-1] 
+                word -= 0.1
+                #rewriting the new lives available
+                with open("cee_lives3.t2t", mode = "w") as lives2:
+                    lives2.write(f"{lives1}")
+                #accessing the contents of the new life
+                with open("cee_lives3.t2t", mode = "r") as lives3:
+                    cont2 = lives3.read()
+                    free = int(cont2)
+                game = True
+                segments[0].setheading(0)
+                segments[0].goto(-200, 0)
+                segments[0].forward(15)
+            elif lives_input == "no" or lives_input == "NO" and lives1 != 0:
+                end = False
         new_score = score
-        segments[0].forward(15)    
+        segments[0].forward(15)
+    varscreen.delay(15)
     varscreen.clear()
     varscreen.bgcolor("black")
     board.penup()
@@ -344,7 +427,8 @@ def gamer():
 
 #calling the function
 gamer()
-            
+
+                
 #runs whenever the main program function has completed
 result = True
 while result:
