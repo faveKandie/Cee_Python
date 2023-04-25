@@ -1,0 +1,37 @@
+import pandas
+
+dict = {
+    "name": ["uju", "cee", "ola", "david"],
+    "grade": [94, 97, 85, 72]
+    }
+date = pandas.DataFrame(dict)#reading from dictionary
+date.to_csv("newfile.csv") #converting dictionary to csv file
+
+rate = pandas.read_csv("newfile.csv")#reading from csv file 
+rand = rate.to_dict() #converting csv file to dictionary
+
+print(date)
+name = date["name"] #to hold a column in the .scv file
+print(name)
+
+col_name = date[date.name == "uju"] #to hold a row in the csv file
+print(col_name)
+
+grade = date["grade"]
+max_grade = grade.max() #to print maximum number in a row
+print(max_grade)
+print(date["grade"].max()) #to print maximum number in a row
+
+listgrade = grade.to_list() #taking a column into a list
+print(listgrade)
+
+sand = 0
+for n in listgrade:
+    rane = n
+    sand += rane
+print(sand)
+total = len(listgrade)
+average = sand/total
+
+print(average)
+print(date["grade"].mean())

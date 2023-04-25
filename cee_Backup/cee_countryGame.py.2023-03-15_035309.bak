@@ -1,0 +1,18 @@
+import csv
+
+list_data = []
+temperature = []
+live = 0
+with open("weather_data.csv") as file1:
+    contents = csv.reader(file1)
+    for row in contents:
+        list_data.append(row)
+        rate = list_data[live]
+        live += 1
+        if rate[1] != "Temp": 
+            temperature.append(int(rate[1]))
+    print(f"\n{temperature}")
+
+import pandas
+data = pandas.read_csv("weather_data.csv")
+print(f"{data}")

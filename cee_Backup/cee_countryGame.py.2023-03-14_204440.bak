@@ -1,0 +1,3 @@
+with open("weather_data.csv") as file1:
+    contents = file1.readlines()
+print(contents)

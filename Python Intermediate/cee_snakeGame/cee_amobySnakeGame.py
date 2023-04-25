@@ -20,6 +20,8 @@ score = 0
 board = Turtle()
 board.ht()
 
+def get_mouse_on_click(x, y):
+    print(x, y)
         
 
 #writing the main program function
@@ -34,7 +36,7 @@ def gamer():
     score = 0
     board.clear()
     bree = Turtle()#to write the number of lives on the screen
-    
+
     board.ht()
     #building essentials
     turtle.colormode(255)
@@ -440,5 +442,5 @@ while result:
         break
 
 #to keep the turtle screen open until it is touched
-varscreen.exitonclick()
-varsc.exitonclick()
+
+turtle.onscreenclick(get_mouse_on_click)

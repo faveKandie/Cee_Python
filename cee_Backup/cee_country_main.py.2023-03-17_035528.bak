@@ -1,0 +1,27 @@
+#This is the main program for my country game
+from turtle import Turtle, Screen, Shape
+from tkinter import PhotoImage
+ 
+varscreen = Screen()
+larger = PhotoImage(file="Nigeria_State.gif").zoom(2,2)
+# varscreen.title("cee_country_Game")
+# cee_image = "Nigeria_State.gif"
+varscreen.addshape("larger", Shape("image", larger))
+tortoise = Turtle("larger")
+tortoise.stamp()
+tortoise.ht()
+varscreen.setup(1000,810)
+# turtle.shape(cee_image)
+
+def get_mouse_on_click(x, y):
+    print(x, y)
+
+run = Turtle()
+run.pensize(15)
+run.ht()
+run.color("pink")
+run. goto(-500, -405)
+run.forward(1000)
+
+varscreen.onscreenclick(get_mouse_on_click)
+varscreen.mainloop()

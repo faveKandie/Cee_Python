@@ -1,0 +1,3 @@
+file = open("practice.txt")
+    contents = file.read()
+print(contents)

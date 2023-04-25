@@ -1,0 +1,10 @@
+import pandas
+
+dict = {
+    "name": ["uju", "cee", "ola", "david"],
+    "Grade": ["99", "100", "85", "72"]
+    }
+date = pandas.DataFrame(dict)
+    
+date.to_csv("newfile.csv")
+

@@ -1,0 +1,53 @@
+#This is the main program for my country game
+import turtle
+import pandas
+import time
+ 
+varscreen = turtle.Screen()
+varscreen.title("cee_country_Game")
+cee_image = "New_Nigeria_map.gif"
+varscreen.addshape(cee_image)
+varscreen.setup(800,610)
+# turtle.shape(cee_image)
+turtle.shape(cee_image)
+
+def get_mouse_on_click(x, y):
+    print(x, y)
+
+#accessing the csv file through panda
+rate = pandas.read_csv("50_states.csv")
+row_state = rate["states"].to_list()
+
+#the turtle to write the state on the map
+writing = turtle.Turtle()
+
+answer_text = varscreen.textinput(title="Guess the State", prompt="What's another state name: ")
+    
+score = 0
+Time = 120
+for n in row_state:
+    soji = True
+    while soji:
+        time.sleep(0.1)
+        answer_text = varscreen.textinput(title="Guess the State", prompt="What's another state name: ")   
+        if answer_text == n:
+            randname = rate[rate.states == answer_text]
+            score += 1
+            #accessing the co-ordinate of the imputed state
+            x_x = randname["x"]
+            print(x_x)
+            xj = int(x_x)
+            y_y = randname["y"]
+            print(y_y)
+            yj = int(y_y)
+            print(f"\n{randname}\n")
+            writing.ht()
+            writing.penup()
+            writing.goto(xj,yj)
+            writing.pendown()
+            writing.write(f"{answer_text}", align = "center", font = ("Comic Sans MS", 15, "bold"))
+            answer_text = varscreen.textinput(title="Guess the State", prompt="What's another state name: ")
+        else:
+            pass
+varscreen.onscreenclick(get_mouse_on_click)
+varscreen.mainloop()

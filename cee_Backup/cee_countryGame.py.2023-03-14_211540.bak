@@ -1,0 +1,17 @@
+import csv
+
+list_data = []
+temperature = []
+
+with open("weather_data.csv") as file1:
+    contents = csv.reader(file1)
+    for row in contents:
+        print(row)
+        list_data.append(row)
+    rate = list_data[1]
+    print(rate[1])
+    rate_split = rate.split(", ")
+    for n in range(0, (len(rate_split))):
+        rate_split[n] = int(rate_split[n])
+    print(list_data)
+    print(rate_split)

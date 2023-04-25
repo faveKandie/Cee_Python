@@ -1,0 +1,11 @@
+import pandas
+
+squirrel = {
+    "fur color": ["grey", "red", "black"],
+    "count": ["2473", "392", "103"]
+    }
+squirr = pandas.DataFrame(squirrel)
+squirr.to_csv("squirrel.csv")
+road = pandas.read_csv("228 2018-Central-Park-Squirrel-Census-Squirrel-DataAngelaYu.csv")
+print(road)
+print(squirr)

@@ -1,0 +1,10 @@
+import pandas
+
+squirrel = {
+    "fur": ["0", "1", "2"],
+    "color": ["grey", "red", "black"],
+    "count": ["2473", "392", "103"]
+    }
+squirr = pandas.DataFrame(squirrel)
+squirr.to_csv("squirrel.csv")
+print(squirr)

@@ -1,10 +1,11 @@
 import random
 
 list = ['Neymar', 'Rihanna', 'Selena Gomez', 'Ronaldo', 'Messi']
+
 dict = {"""list[0]: "A russian footballer ", 
 list[1]: "A musician. ", 
 list[2]: "Justin Bieber ex", 
-"}
+"""}
 
 var = [ ]
 for randvar in dict:

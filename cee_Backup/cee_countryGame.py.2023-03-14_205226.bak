@@ -1,0 +1,10 @@
+line = 0
+for n in range(8):
+    with open("weather_data.csv") as file1:
+        line += 1
+        contents = file1.readlines(line)
+        print(contents)
+
+        list_data = []
+        list_data.append(contents)
+    print(list_data)

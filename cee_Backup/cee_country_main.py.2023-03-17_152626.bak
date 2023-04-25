@@ -1,0 +1,33 @@
+#This is the main program for my country game
+import turtle
+import pandas
+ 
+varscreen = turtle.Screen()
+varscreen.title("cee_country_Game")
+cee_image = "New_Nigeria_map.gif"
+varscreen.addshape(cee_image)
+varscreen.setup(800,610)
+# turtle.shape(cee_image)
+turtle.shape(cee_image)
+
+def get_mouse_on_click(x, y):
+    print(x, y)
+
+rate = pandas.read_csv("50_states.csv")
+row_state = rate["states"].to_list()
+        
+print(rate)
+writing = turtle.Turtle()
+
+answer_text = varscreen.textinput(title="Guess the State", prompt="What's another state name: ")
+
+for n in len(row_state):
+    if answer_text == n:
+        writing.penup()
+        writing.goto(0,0)
+        writing.pendown()
+        writing.write(answer_text)
+        
+varscreen.onscreenclick(get_mouse_on_click)
+varscreen.mainloop()
+

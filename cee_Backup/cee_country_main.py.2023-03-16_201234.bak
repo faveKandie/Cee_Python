@@ -1,0 +1,11 @@
+#This is the main program for my country game
+import turtle
+ 
+varscreen = turtle.Screen()
+varscreen.title("cee_country_Game")
+cee_image = "blank_states_img.gif"
+varscreen.addshape(cee_image)
+varscreen.setup(400,800)
+turtle.shape(cee_image)
+
+varscreen.exitonclick()

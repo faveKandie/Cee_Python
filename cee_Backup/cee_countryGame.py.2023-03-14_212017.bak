@@ -1,0 +1,13 @@
+import csv
+
+list_data = []
+temperature = []
+live = 0
+with open("weather_data.csv") as file1:
+    contents = csv.reader(file1)
+    for row in contents:
+        print(row)
+        live += 1
+        list_data.append(row)
+        rate = list_data[live]
+        print(rate[1])

@@ -1,0 +1,5 @@
+#This is the main program for my country game
+from turtle import Turtle, Screen
+varscreen = Screen()
+varscreen.title("cee_country_Game")
+cee_image = "

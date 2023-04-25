@@ -1,0 +1,25 @@
+from turtle import Screen
+
+row_state = ['abia', 'adamawa', 'akwaibom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'borno', 'crossriver']
+
+answer_text = input("mention a state: ")
+
+for n in row_state:
+    if answer_text == n:
+        print(f"{answer_text}. Yayy!")
+        
+ella = "Hello"
+ela = "uju"
+print(ella + ela)
+varscreen = Screen()
+timer = 60
+varscreen.ontimer(fun= timer, t = 100)
+# running = True
+# def f():
+    # if running:
+        # fd
+        # (50)
+        # lt(60)
+        # screen.ontimer(f, 250)
+# f()   ### makes the turtle march around
+# running = False

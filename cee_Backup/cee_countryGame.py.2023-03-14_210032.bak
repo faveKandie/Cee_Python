@@ -1,0 +1,9 @@
+import csv
+
+with open("weather_data.csv") as file1:
+    contents = csv.reader(file1)
+print(contents)
+
+list_data = []
+list_data.append(contents)
+print(list_data)

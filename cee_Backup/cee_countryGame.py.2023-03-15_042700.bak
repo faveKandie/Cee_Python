@@ -1,0 +1,42 @@
+import csv
+
+list_data = []
+temperature = []
+live = 0
+with open("weather_data.csv") as file1:
+    contents = csv.reader(file1)
+    for row in contents:
+        list_data.append(row)
+        rate = list_data[live]
+        live += 1
+        if rate[1] != "Temp": 
+            temperature.append(int(rate[1]))
+    #to get a column in the csv into a list using for loop
+    print(f"\n{temperature}")
+
+#to express the csv file as a row and column form
+import pandas
+#to access it in pandas form 
+data = pandas.read_csv("weather_data.csv")
+#to hold a row in pandas form
+read = data["Temp"]
+#--print(type(data))
+print(f"\n{data}")
+#--print(f"\n{read}")
+#to convert the csv file in pandas form into a python dictionary using the ".to_dict()" function
+data_in_dict = data.to_dict()
+print(data_in_dict)
+#to get a column in the csv into a list using the ".to_list()"function
+temp_data = data["Temp"].to_list()
+print(temp_data)
+#to get the length of a list do: len(listname)
+#to get the sum of integers in a list, do: sum(listname)
+
+sand = 0
+for n in temp_data:
+    rand = n
+    sand += rand
+num_temp = len(temp_data)
+average_temp = sand / num_temp
+print(average_temp)
+        

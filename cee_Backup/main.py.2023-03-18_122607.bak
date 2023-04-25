@@ -1,0 +1,28 @@
+import turtle 
+
+row_state = ['abia', 'adamawa', 'akwaibom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'borno', 'crossriver']
+
+answer_text = input("mention a state: ")
+
+for n in row_state:
+    if answer_text == n:
+        print(f"{answer_text}. Yayy!")
+        
+ella = "Hello"
+ela = "uju"
+print(ella + ela)
+
+varscreen = turtle.Screen()
+varscreen.title("cee_country_Game")
+cee_image = "New_Nigeria_map.gif"
+varscreen.addshape(cee_image)
+varscreen.setup(800,610)
+# turtle.shape(cee_image)
+turtle.shape(cee_image)
+
+# running = True
+# def f():
+    # varscreen.bgcolor("black")
+
+# varscreen.ontimer(fun= f(), t = 100)
+varscreen.mainloop()

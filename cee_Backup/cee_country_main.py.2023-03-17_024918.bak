@@ -1,0 +1,16 @@
+#This is the main program for my country game
+import turtle
+import patch_turtle_image
+ 
+varscreen = turtle.Screen()
+varscreen.title("cee_country_Game")
+cee_image = "Nigerian.jpg"
+varscreen.bgpic("Nigerian.jpg)
+varscreen.setup(720,505)
+
+
+def get_mouse_on_click(x, y):
+    print(x, y)
+
+turtle.onscreenclick(get_mouse_on_click)
+varscreen.mainloop()

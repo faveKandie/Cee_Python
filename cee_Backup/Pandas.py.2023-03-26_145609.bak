@@ -1,0 +1,111 @@
+import pandas
+import csv
+import random
+
+dict = {
+    "name": ["mirabel", "cee", "ola", "david"]
+    }
+
+# date = pandas.DataFrame(dict)#reading from dictionary
+# date.to_csv("newfile.csv") #converting dictionary to csv file
+    
+grade1 = []
+def added(adder, grading, rear):
+    for n in range(0, 4):
+        food = random.randint(0, 100)
+        adder.append(food)
+    dict[f"{grading}"] = adder
+    rear = pandas.DataFrame(dict)
+    rear.to_csv("new_file.csv")
+
+
+added(grade1, "grade", date)
+print(grade1)
+print(dict)
+
+rate = pandas.read_csv("newfile.csv")#reading from csv file 
+rand = rate.to_dict() #converting csv file to dictionary
+
+print(date)
+print(rand)
+
+# name = date["name"] #to hold a column in the .scv file
+# print(name)
+
+# col_name = date[date.name == "uju"] #to hold a row in the csv file
+# print(col_name)
+
+# # grade = date["grade"]
+# # max_grade = grade.max() #to print maximum number in a row
+# # print(max_grade)
+# print(date["grade"].max()) #to print maximum number in a row
+
+# listgrade = grade.to_list() #taking a column into a list
+# print(listgrade)
+
+# sand = 0
+# for n in listgrade: #finding the average using for loop from list
+    # rane = n
+    # sand += rane
+# print(sand)
+# total = len(listgrade)
+# average = sand/total
+
+# print(average)
+# print(date["grade"].mean()) #finding average using mean() function
+
+# score = []
+
+# print(score)
+
+# def grading(scorer, grades):
+    # for n in grades:
+        # if n >= 70:
+            # scores = "A"
+            # scorer.append(scores)
+        # elif n >= 60 and n <= 69:
+            # scores = "B"
+            # scorer.append(scores)
+        # elif n >= 50 and n <= 59:
+            # scores = "C"
+            # scorer.append(scores)
+        # elif n >= 45 and n <= 49:
+            # scores = "D"
+            # scorer.append(scores)
+        # elif n >= 40 and n <= 44:
+            # scores = "E"
+            # scorer.append(scores)
+        # else:
+            # scores = "F"
+            # scorer.append(scores)
+    
+# grading(score, grade)
+# #to add a column to a csv file, create  list, add to dictionary, assess the dictionary as a csv file    
+# def proc():
+    # date = pandas.DataFrame(dict)
+    # date.to_csv("newfile.csv")
+    # print(f"\n{date}")
+
+# dict["score"] = score #adding a list to a dictionary
+# proc()
+
+# score1 = []
+# grade1 = []
+# added(grade1, grade1, date)
+
+# print(grade1)
+
+# proc()
+
+# grading(score1, grade1)
+# dict["score1"] = score1 #adding a list to a dictionary
+
+# proc()
+
+# radio = date["grade"].to_list()
+# print(grade1)
+# print(radio)
+# print(date)
+# print(dict)
+
+

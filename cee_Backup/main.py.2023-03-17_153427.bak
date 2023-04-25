@@ -1,0 +1,6 @@
+row_state = ['abia', 'adamawa', 'akwaibom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'borno', 'crossriver']
+
+answer_text = input("mention a state: ")
+for n in row_state:
+    if answer_text == n:
+        print(f"{answer_test}. Yayy!")
